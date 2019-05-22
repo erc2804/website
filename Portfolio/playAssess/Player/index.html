@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+
+<head>
+  <script src="../../globals/ext/jquery.min.js"></script>
+  <script src="../../globals/ext/bootstrap.min.js"></script>
+  <script src="../../globals/ext/lodash.min.js"></script>
+  <script src="jquery.zoomooz.min.js"></script>
+  <script src="index.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../globals/ext/bootstrap.min.css">
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <!-- lock zoom on mobile devices -->
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+
+<body class="flex-display flex-center">
+  <a href="https://ercancicek.de" id="closeBtn_playAssess" class="flex-display flex-center"><span>X</span></a>
+  <div id="pageCont" class="flex-display flex-center">
+
+    <!-- video content page -->
+    <div id="video-page" class="page flex-display flex-center">
+      <video width="150" height="250" id="intro-vid-container" autoplay>
+          <source type="video/mp4">
+        </video>
+    </div>
+
+    <!-- explain content page -->
+    <div id="explain-page" class="page">
+      <div class="explainBloon textBloon-container flex-display flex-column flex-center">
+        <div class="textBloon flex-display flex-row flex-center">
+          <span class="noselect">Odd from the planet Omega-Centauri has captured the city's highest skyscraper and set up on the top floor. He wants to bring the whole city under his control. You must stop him! Go to the top floor and challenge him!</span>
+          <div onClick="explainBtnClick();" class="textBloon-btn btn btn-danger"><span>Understood!</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- scene content page -->
+    <div id="scene-page" class="page">
+      <div id="bg-container" class="flex-display flex-center">
+        <div id="scene-objects">
+          <div id="monitor" class="flex-display flex-center">
+            <div id="monitor-content" onClick="startPlayer();" class="blackscreen"></div>
+          </div>
+          <div class="textBloon-container flex-display flex-column flex-center hide">
+            <!-- hidden on start -->
+            <div class="triangle"></div>
+            <div class="textBloon flex-display flex-column flex-start">
+              <span id="textBloon-content" class="noselect"></span>
+              <div id="accept-btn" onClick="challengeAccepted();" class="textBloon-btn btn btn-danger"><span>Start the challenge</span></div>
+              <div id="error-btn" onClick="backToHub();" class="textBloon-btn btn btn-danger hide"><span>Return to hub</span></div>
+              <!-- hidden on start -->
+            </div>
+          </div>
+          <div id="elevator-el-container" class="flex-display flex-column flex-center">
+            <div><img src="Content/elevator-speaker.png" alt="Could not load image." /></div>
+            <div id="elevator-btn" onClick="eleBtnClick();"><img src="Content/elevator-button.svg" alt="Could not load image." /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end content page -->
+    <div id="end-page" class="page flex-display flex-column flex-center">
+      <div class="explainBloon textBloon-container flex-display flex-column flex-center">
+        <div class="textBloon flex-display flex-row flex-center">
+          <span class="noselect">Congratulations! You have completed the mission. Odd capitulates, jumps aboard his spaceship and flees home.</span>
+          <div onClick="backToHub();" class="textBloon-btn btn btn-danger"><span>Complete the challenge</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- rotation modal -->
+  <div id="rotModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body flex-display flex-column flex-center">
+          <img src="Content/rotateToPortrait.png" alt="Could not load image." />
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

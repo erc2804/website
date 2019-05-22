@@ -1,0 +1,410 @@
+html, body, #vid-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: 'worksans-regular';
+}
+
+body {
+  background-color: #9E9E9E !important;
+  justify-content: center !important;
+}
+
+/* if somebody starts the vidassess with a smartdevice */
+@media all and (orientation: portrait) and (max-width: 700px) {
+  body {
+    background-color: #efefef !important;
+  }
+  #sizeSimulation {
+    width: 100% !important;
+  }
+}
+
+/*====================player styles=======================================*/
+
+@font-face {
+  font-family: 'worksans-regular';
+  src: url('../../../fonts/worksans-regular.woff2') format('woff2'), url('../../../fonts/worksans-regular.woff') format('woff'), url('../../../fonts/worksans-regular.ttf') format('truetype');
+}
+
+#toolbar {
+  position: relative;
+  width: 100%;
+  height: 2.2em;
+  padding: 0 15px;
+  box-shadow: 0 3px 3px #ccc;
+  background-color: #1d3061;
+}
+
+#closeBtn {
+  color: #fff;
+  font-size: 1.2em;
+}
+
+#closeBtn:hover, #closeBtn:focus {
+  text-decoration: none !important;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 2.2em;
+}
+
+#wrongBrowser {
+  margin-top: 1em;
+  font-size: 1.25em;
+}
+
+#logoCont {
+  position: relative;
+  width: 100%;
+  margin-top: 1em;
+}
+
+#logoCont > a {
+  position: relative;
+  width: 50%;
+}
+
+#logoCont > a > img {
+  position: relative;
+  width: 33%;
+}
+
+#logoCont > a > span {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.vidHeader {
+  position: relative;
+  width: 90%;
+  border-bottom: 1px solid #BDBDBD;
+  padding-bottom: 5px;
+  margin: 5px auto 0 auto;
+}
+
+.vidHeader > span {
+  font-size: 1.75em;
+  font-weight: bold;
+}
+
+#vidInstruct {
+  position: relative;
+  width: 90%;
+  margin: 1em auto 0 auto;
+}
+
+.btn-container {
+  position: relative;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.btn-myDefault {
+  position: relative;
+  width: 3em;
+  height: 3em;
+  color: #fff;
+  border-color: #1d3061;
+  border-radius: 5px;
+  background-color: #1d3061;
+}
+
+.btn-myDefault:hover, .btn-myDefault:focus {
+  color: #fff !important; /* to override bootstrap styles */
+  text-decoration: none !important; /* to override bootstrap styles */
+}
+
+.btn-myDefault:disabled, .btn-myDefault[disabled] {
+  opacity: .33;
+  cursor: default;
+}
+
+.btn-myDefault:disabled:hover .glyphicon, .btn-myDefault[disabled]:hover .glyphicon, .btn-myDefault[disabled]:focus .glyphicon, .btn-myDefault:disabled:focus .glyphicon {
+  transform: none !important;
+}
+
+.btn-myDefault > span.glyphicon {
+  font-size: 1.2em;
+  margin-bottom: 8%;
+}
+
+.material-box {
+  padding: 2.5em 1em;
+  background-color: #e5e5e5;
+  border-radius: 6px;
+}
+
+#video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+}
+
+#va-recorder {
+  position: relative;
+  width: 66%;
+  margin-top: 1em;
+  margin-left: 5%;
+}
+
+.video-btns-container {
+  position: relative;
+  width: 30%;
+  margin-top: 1em;
+}
+
+.video-btns-container > a:last-child {
+  margin-top: 1em;
+}
+
+#video-btns-container-stream > a {
+  position: relative;
+  width: 25%;
+  height: auto;
+  transition: transform .3s ease;
+}
+
+#video-btns-container-stream > a:hover {
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+.question-box {
+  position: relative;
+  width: 90%;
+  margin: 1em auto 0 auto;
+}
+
+#stream {
+  /* mirror video stream/rec */
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  width: 100%;
+}
+
+#va-recorder video {
+    width: 100%;
+    position: relative; /* necessary for stacking with z-index */
+    z-index: 2;
+    border-radius: 6px;
+}
+
+#vid-replay-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+    #vid-replay-wrapper > .hoverReplBtn {
+        position: absolute;
+        width: 100%;
+        height: 99%;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        cursor: pointer;
+        background-color: rgba(255,255,255,0.3);
+        opacity: 0;
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+        transition: opacity .5s ease-in-out;
+    }
+
+    #vid-replay-wrapper > .hoverReplBtn > img {
+        width: 33%;
+    }
+
+        #vid-replay-wrapper > .hoverReplBtn:hover, .hoverReplBtnActive {
+            opacity: 1 !important;
+        }
+
+.progress-bar-vertical {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  border-radius: 0;
+  opacity: 0.75;
+  background-color: transparent !important;
+  box-shadow: none;
+  z-index: 3;
+}
+
+    .progress-bar-vertical .progress-bar {
+      width: 100%;
+      height: 0;
+      transition: height 0.075s;
+    }
+
+.rec-timer {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    color: black;
+    font-size: 3em;
+    z-index: 3;
+}
+
+    .rec-timer > span:not(.glyphicon) {
+      margin-top: 6px;
+      margin-left: 3px;
+    }
+
+#upload-bar {
+  position: relative;
+  width: 90%;
+  margin: 1em auto 0 auto;
+  background-color: #e5e5e5;
+}
+
+#upload-page > .btn-container {
+  margin-top: 2em;
+}
+
+.deepHide {
+  display: none !important;
+}
+
+.softHide {
+  visibility: hidden;
+}
+
+.lowerOpac {
+    opacity: 0.1;
+}
+
+/* Icon Forward */
+.hvr-icon-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  -ms-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.1s;
+}
+.hvr-icon-forward .glyphicon {
+  transform: translateZ(0);
+  transition-duration: 0.1s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+.hvr-icon-forward:hover .glyphicon, .hvr-icon-forward:focus .glyphicon, .hvr-icon-forward:active .glyphicon {
+  -webkit-transform: translateX(3px);
+  -ms-transform: translateX(3px);
+  transform: translateX(3px);
+}
+
+/* Icon Back */
+.hvr-icon-back:hover .glyphicon, .hvr-icon-back:focus .glyphicon, .hvr-icon-back:active .glyphicon {
+  -webkit-transform: translateX(-3px) !important;
+  transform: translateX(-3px) !important;
+}
+
+/* Icon Spin */
+.hvr-icon-spin {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  -ms-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-icon-spin .glyphicon {
+  transition-duration: .7s;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+}
+.hvr-icon-spin:hover .glyphicon, .hvr-icon-spin:focus .glyphicon, .hvr-icon-spin:active .glyphicon {
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+/*====================simulate iframe=======================================*/
+
+#sizeSimulation {
+  position: relative;
+  width: 75%;
+  height: auto;
+  min-height: 100%;
+  background-color: #efefef;
+}
+
+@media all and (min-width: 1200px) and (min-height: 768px) {
+  #sizeSimulation {
+    width: 1024px;
+    min-height: 100%;
+    height: auto;
+  }
+}
+
+/*====================Cute: flex-klassen=======================================*/
+
+.flex-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flex-end {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-spaceB {
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}

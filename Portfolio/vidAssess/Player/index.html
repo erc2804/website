@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+
+<head>
+  <script src="../../globals/ext/jquery.min.js"></script>
+  <script src="../../globals/ext/angular.min.js"></script>
+  <script src="../../globals/ext/bootstrap.min.js"></script>
+  <script src="../../globals/ext/lodash.min.js"></script>
+  <script src="volume-meter.js"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../globals/ext/bootstrap.min.css">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <!-- lock zoom on mobile devices -->
+</head>
+
+<body ng-app="vidApp" ng-controller="vidCtrl" class="flex-display flex-start">
+<div id="sizeSimulation">
+  <div id="toolbar" class="flex-display flex-end">
+    <a href="http://www.ercancicek.de" id="closeBtn" class="flex-display flex-center"><span class="glyphicon glyphicon-remove"></span></a>
+  </div>
+  <div id="vid-container" class="flex-display flex-column flex-center">
+
+    <!-------------------------------------- instruction page -------------------------------------->
+    <div id="instruction-page" class="page deepHide">
+      <div class="vidHeader">
+        <span>vidAssess demo</span>
+      </div>
+      <div id="vidInstruct">
+        <span>Welcome to my frontend demo for the vidAssess video interview platform by </span>
+        <a href="https://www.cut-e.net" target="_blank"><span>cut-e (an AON company)</span></a>
+        .</span><br />
+        <span>This is just a draft to show you how the product looks like. If you are interested in the real product click
+        <a href="https://www.cut-e.de/online-assessment/vidassess/" target="_blank"><span>HERE</span></a>
+        and request a call.</span><br /><br />
+        <span>On the next page the app will request to get your webcam and microphone stream.</span><br /><br />
+        <div class="material-box"><span>No video or audio will be saved, everything will remain on your local device!</span></div>
+        <div id="wrongBrowser" class="material-box deepHide">
+          <span>YOUR BROWSER DOES NOT SUPPORT THE MEDIARECORDER API. PLEASE USE THE LATEST VERSION OF CHROME OR FIREFOX ON A DESKTOP DEVICE.</span>
+          <div id="logoCont" class="flex-display flex-row flex-center">
+            <a href="https://www.google.de/chrome/index.html" class="flex-display flex-column flex-center">
+              <img src="Content/image_chrome.svg" alt="image_chrome_alternative">
+              <span>Google Chrome</span>
+            </a>
+            <a href="https://www.mozilla.org/de/firefox/" class="flex-display flex-column flex-center">
+              <img src="Content/image_firefox.svg" alt="image_firefox_alternative">
+              <span>Mozilla Firefox</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="btn-container flex-display flex-center">
+        <a href="#" class="btn-myDefault flex-display flex-center hvr-icon-forward" ng-click="startStream()">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-------------------------------------- rec page -------------------------------------->
+    <div id="rec-page" class="page deepHide">
+      <div class="vidHeader">
+        <span>Interview</span>
+      </div>
+      <div class="question-box material-box">{{isReplay ? replayTxtContent : questionContent}}</div>
+      <div id="video-container" class="flex-display flex-row">
+        <div id="va-recorder">
+          <video id="stream" ng-class="isReplay ? 'deepHide' : ''" preload="none"></video> <!-- vid stream container -->
+          <div id="vid-replay-wrapper" class="distanceToTop" ng-class="isReplay ? '' : 'deepHide'"> <!-- vid replay wrapper -->
+              <a href="#" class="hoverReplBtn flex-display flex-center" ng-class="replayIsPlaying ? '' : 'hoverReplBtnActive'" ng-click="triggerReplay(!replayIsPlaying ? 'play' : 'pause')">
+                  <img ng-if="!replayIsPlaying" src="Content/play.svg" />
+                  <img ng-if="replayIsPlaying" src="Content/pause.svg" />
+              </a>
+              <video id="vid-replay" ng-class="isReplay ? '' : 'deepHide'" preload="none"></video> <!-- vid replay container -->
+          </div>
+          <div ng-class="isReplay ? 'softHide' : ''" class="va-tricolor progress progress-bar-vertical va-volume-bar flex-display flex-column flex-end">
+              <div id="meterBox_3" class="meterBox progress-bar" role="progressbar" style="background-color: red;"></div>
+              <div id="meterBox_2" class="meterBox progress-bar" role="progressbar" style="background-color: green;"></div>
+              <div id="meterBox_1" class="meterBox progress-bar" role="progressbar" style="background-color: yellow;"></div>
+          </div>
+          <div class="rec-timer flex-display flex-center softHide"><span>3</span></div>
+        </div>
+        <div id="video-btns-container-recording" ng-class="isReplay ? '' : 'deepHide'" class="video-btns-container flex-display flex-column flex-center">
+          <a href="#" class="btn-myDefault flex-display flex-center hvr-icon-forward" ng-click="pageAfterReplay(true)">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+          <a href="#" class="btn-myDefault flex-display flex-center hvr-icon-spin" ng-click="pageAfterReplay(false)">
+            <span class="glyphicon glyphicon-repeat"></span>
+          </a>
+        </div>
+        <div id="video-btns-container-stream" ng-class="isReplay ? 'deepHide' : ''" class="video-btns-container flex-display flex-column flex-center softHide">
+          <a href="#" ng-class="lockedRecBtn ? 'softHide' : ''" ng-click="isRecording ? stopRec() : recStartAnim()" ng-disabled="lockedRecBtn">
+              <img ng-src="Content/{{isRecording ? 'stop.svg' : 'record.svg'}}" />
+          </a>
+          <a href="#" ng-click="hideClick()">
+              <img ng-src="Content/{{streamHidden ? 'eye-open.svg' : 'eye-close.svg'}}" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="upload-page" class="page deepHide">
+      <div class="question-box material-box">
+          <span>This is just a frontend demo upload. The app is not uploading anything!</span>
+      </div>
+      <div id="upload-bar" class="progress"><div class="progress-bar progress-bar-info progress-bar-striped" ng-class="!uploadFinished ? 'active' : ''" role="progressbar"></div></div>
+      <div class="btn-container flex-display flex-center">
+        <a href="#" class="btn-myDefault flex-display flex-center hvr-icon-forward" ng-click="uploadFinClick()" ng-disabled="!uploadFinished">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="last-page" class="page deepHide">
+      <div class="vidHeader">
+        <span>That's it!</span>
+      </div>
+      <div id="vidInstruct">
+        <span>Thank you for using my frontend demo of the video interview. If you are interested in the real product click
+        <a href="https://www.cut-e.de/online-assessment/vidassess/" target="_blank"><span>HERE</span></a>
+        and request a call.</span><br /><br />
+        <span>You can return to the main page by clicking the button beneath.</span>
+      </div>
+      <div class="btn-container flex-display flex-center">
+        <a href="#" class="btn-myDefault flex-display flex-center hvr-icon-forward hvr-icon-back" ng-click="backToMain()">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="error-page" class="page deepHide">
+      {{errorMessage}}
+    </div>
+  </div>
+</div>
+</body>
