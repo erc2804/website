@@ -76,3 +76,10 @@
 .czechia {
   background-image: url("img/countricons/czech-republic.svg");
 }
+
+/* --- travelblog_resources --- */
+.added-res {
+  max-height: 80vh;
+  max-width: 80vw;
+  margin: 2em 2em 0 2em;
+}
