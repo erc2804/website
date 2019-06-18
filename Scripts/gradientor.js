@@ -55,12 +55,12 @@ function setNewGradientInView() {
     "background: " + hexArr[0] + ";",
     "background: -webkit-linear-gradient(to " + allDirections[curDirectionIdx] + ", " +
     hexArr[0] +
-    "," +
+    ", " +
     hexArr[1] +
     ");",
     "background: linear-gradient(to " + allDirections[curDirectionIdx] + ", " +
     hexArr[0] +
-    "," +
+    ", " +
     hexArr[1] +
     ");"
   ];

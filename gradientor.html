@@ -98,22 +98,28 @@
                 <div class="hex-icon"></div>
                 <span class="hex-code"></span>
             </div>
-            &rArr;
+            <span class="fas fa-arrow-circle-right"></span>
             <div id="hex2" class="hex-container flex-display flex-row flex-center">
                 <div class="hex-icon"></div>
                 <span class="hex-code"></span>
             </div>
         </div>
-        <div class="rggen-gradient flex-display flex-center">
+        <div class="rggen-gradient flex-display flex-center-vert flex-center-horiz">
             <div id="hex-css-container">
                 <div id="hex-css-code"></div>
-                <button id="copy-btn">copy</button>
+                <div id="hex-css-copy-btn-container" class="flex-display flex-end-vert flex-end-horiz">
+                    <a id="copy-btn" class="rggen-btn flex-display flex-column flex-center-vert"><span
+                            class="fas fa-copy"></span><span>copy</span></a>
+                </div>
             </div>
         </div>
-        <div class="rggen-footer flex-display bg-sand">
-            <a id="next-btn" class="rggen-btn flex-display flex-center"><span>next</span></a>
-            <a id="code-btn" class="rggen-btn flex-display flex-center"><span>code</span></a>
-            <a id="rotate-btn" class="rggen-btn flex-display flex-center"><span>rotate</span></a>
+        <div class="rggen-footer flex-display flex-row flex-center-vert flex-center-horiz bg-sand">
+            <a id="code-btn" class="rggen-btn flex-display flex-column flex-center-vert"><span
+                    class="fas fa-code"></span><span>code</span></a>
+            <a id="next-btn" class="rggen-btn flex-display flex-column flex-center-vert"><span
+                    class="fas fa-angle-double-right"></span><span>next</span></a>
+            <a id="rotate-btn" class="rggen-btn flex-display flex-column flex-center-vert"><span
+                    class="fas fa-sync-alt"></span><span>rotate</span></a>
         </div>
     </div>
     <div class="lowest-container bg-green-material"></div>

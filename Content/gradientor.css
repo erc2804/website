@@ -30,10 +30,16 @@
   height: 4em;
 }
 
+.rggen-gradient, .rggen-footer {
+  margin-top: -3px;
+}
+
 .rggen-gradient {
   position: relative;
   width: 100%;
   height: 16em;
+  border-right: 4em solid #EDF5E1;
+  border-left: 4em solid #EDF5E1;
 }
 
 .hex-container {
@@ -50,17 +56,19 @@
 
 .hex-code {
   margin-left: 0.25em;
-  padding-top: 0.15em;
 }
 
 .rggen-btn {
-  position: absolute;
-  width: 4em;
-  height: 4em;
+  position: relative;
+  width: auto;
+  height: 3em;
+  padding: 0 1em;
+  margin: 0 .33em;
   text-decoration: none;
 }
 
 .rggen-btn > span {
+  text-align: center;
   transition: transform 0.2s ease;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -79,19 +87,16 @@
 }
 
 #next-btn {
-  left: 0;
   color: #fff;
   background-color: #379683;
 }
 
 #code-btn {
-  left: 4em;
   color: #000;
   background-color: #8EE4AF;
 }
 
 #rotate-btn {
-  right: 0;
   color: #000;
   background-color: #8EE4AF;
 }
@@ -100,8 +105,16 @@
   position: relative;
   padding: 3em;
   font-size: 0.8em;
-  background-color: white;
+  background-color: #EDF5E1;
   opacity: 0;
+}
+
+#hex-css-container > #hex-css-copy-btn-container {
+  margin-top: .66em;
+}
+
+#hex-css-container > #hex-css-copy-btn-container > a {
+  border: 1px solid black;
 }
 
 @-webkit-keyframes flipInX {
