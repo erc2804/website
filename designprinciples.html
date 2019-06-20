@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109465574-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-109465574-1');
+  </script>
+  <!-- meta tags -->
+  <title>Ercan Cicek - Design Principles</title>
+  <meta charset="utf-8" />
+  <meta name="keywords" lang="de" content="ercan cicek, mainz, mobile app developer, social media">
+  <meta name="description" lang="de"
+    content="Ercan Cicek - Social Media - Web-App-Developer, Webentwickler, Webdesigner in Mainz">
+  <meta name="author" content="Ercan Cicek">
+  <meta name="page-topic" lang="de" content="Dienstleistung, Person">
+  <meta name="robots" content="index,follow">
+  <meta name="revisit-after" content="30 days">
+  <meta name="audience" content="alle">
+  <meta name="expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="imagetoolbar" content="false">
+  <!-- scripts -->
+  <script src='Portfolio/globals/ext/fastclick.min.js'></script>
+  <script src="Portfolio/globals/ext/jquery.min.js"></script>
+  <script src="Scripts/index.js"></script>
+  <!-- styles --->
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-57x57.png" sizes="57x57">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-60x60.png" sizes="60x60">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-72x72.png" sizes="72x72">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-76x76.png" sizes="76x76">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-114x114.png" sizes="114x114">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-120x120.png" sizes="120x120">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-128x128.png" sizes="128x128">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-144x144.png" sizes="144x144">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-152x152.png" sizes="152x152">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-180x180.png" sizes="180x180">
+  <link rel="apple-touch-icon" href="Content/img/icons/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="Content/img/icons/favicon.ico">
+  <link rel="stylesheet" href="Content/fontawesome.min.css" />
+  <link rel="stylesheet" href="Content/globals.css" />
+  <link rel="stylesheet" href="Content/header.css" />
+  <link rel="stylesheet" href="Content/designprinciples.css" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+
+<body>
+  <div class="upper-container flex-display flex-column bg-green-material font-sand">
+    <div class="header flex-display flex-row flex-spaceB">
+      <div class="logo-container flex-display flex-row flex-start-vert flex-center-vert">
+        <a href="index.html" class="logo hvr-shutter-out-vertical"><img src="Content/img/logo-on-dark.png" /></a>
+        <div class="logo-text-container flex-display flex-column flex-center-vert">
+          <span>ERCAN CICEK</span>
+          <span>Web-App Developer</span>
+        </div>
+      </div>
+      <!-- portrait only -->
+      <div class="navIcon" onClick="morphBurgerBtn();">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="navMenu flex-display flex-column flex-center-horiz bg-blue deepHide">
+        <a href="index.html" class="font-sand">Portfolio</a>
+        <div class="bg-sand"></div>
+        <!-- horizontal line -->
+        <a href="designprinciples.html" class="font-sand">Design Principles</a>
+        <div class="bg-sand"></div>
+        <!-- horizontal line -->
+        <a href="gradientor.html" class="font-sand">Gradientor</a>
+        <div class="bg-sand"></div>
+        <!-- horizontal line -->
+        <a href="travelblog.html" class="font-sand">Travel Blog</a>
+        <div class="bg-sand"></div>
+        <!-- horizontal line -->
+        <a href="socialmedia.html" class="font-sand">Social Media</a>
+        <div class="bg-sand"></div>
+        <!-- horizontal line -->
+        <a href="mailto:erc2804@outlook.de" class="font-sand">Contact me</a>
+      </div>
+      <!-- landscape only -->
+      <div class="desktop-navbar flex-display flex-center-horiz flex-center-vert">
+        <a href="index.html" class="font-sand txtUnderlineAnim">Portfolio</a>
+        <a href="designprinciples.html" class="font-sand txtUnderlined">Design Principles</a>
+        <a href="gradientor.html" class="font-sand txtUnderlineAnim">Gradientor</a>
+        <a href="travelblog.html" class="font-sand txtUnderlineAnim">Travel Blog</a>
+        <a href="socialmedia.html" class="font-sand txtUnderlineAnim">Social Media</a>
+        <a href="mailto:erc2804@outlook.de" class="contactBtn bg-green-dark font-sand">CONTACT ME</a>
+      </div>
+    </div>
+    <div class="visitenkarte flex-display flex-column flex-center-horiz flex-center-vert">
+      <span>Design Principles</span>
+    </div>
+  </div>
+  <div class="lower-container flex-display flex-center-vert flex-flow bg-green-material">
+    <section id="design-section-space"
+      class="design-section flex-display flex-column flex-center-vert flex-center-horiz bg-blue font-sand">
+      <div>
+        <h2>Space</h2>
+        <strong>1. Proximity = Relatedness</strong>
+        <p>Things that are <b>closer</b> to each other than to the other elements, are perceived as <b>being related
+            more</b> to each other than to the other elements.</p>
+        <p>This principle can be applied in different ways, such as:</p>
+        <ul>
+          <li>Labels and supporting information should be positioned near the elements that they describe/relate to.
+          </li>
+          <li>Elements of a design should have less space between each other than between those elements and the edges
+            of
+            the composition.</li>
+          <li>There should be more space between the lines than between each word in a line — and, similarly, more space
+            between different paragraphs than between the lines inside a paragraph.</li>
+          </ul>
+          <!-- <div style="width: 100%;" class="flex-display flex-flow flex-spaceB">
+              <div style="width: 20vw; height: 20vw; background: red;"></div>
+              <div style="width: 20vw; height: 20vw; background: black;"></div>
+            </div> -->
+        <strong>2. Negative Space</strong>
+        <p>In combination with Occam’s Razor, give your designs as much negative space as you possibly can, to declutter
+          them and make their meaning more obvious.</p>
+        <p>Putting too many elements into a limited amount of space is like trying to listen to three different songs at
+          once. It’s hard to understand what is being said.</p>
+        <strong>3. Importance and Order</strong>
+        <p>This one is extremely common sense but I feel like I still have to mention it here.
+
+          Things that matter most, you put first, and/or make them take up the most amount of space. Use sequences of
+          things to convey order. Et cetera. You can definitely figure out the rest.</p>
+    </section>
+    <section id="design-section-consistency"
+      class="design-section flex-display flex-column flex-center-vert flex-center-horiz bg-sand font-blue">
+      <div>
+        <h2>Consistency</h2>
+        <p>Make sure similar elements appear in similar ways.</p>
+        <p>Why? First of all, by keeping things consistent (and, therefore, simple), you allow people to focus their
+          attention on important aspects of your design rather than being distracted by things changing all the time.
+        </p>
+        <p>Second, consistency increases trust and makes things look actually designed, rather than just quickly thrown
+          together.</p>
+        <p>Things to stick to once you have selected them:</p>
+        <ul>
+          <li>Font</li>
+          <li>Color palette</li>
+          <li>Grid</li>
+          <li>Alignment</li>
+          <li>Style of decorative elements</li>
+        </ul>
+        <p>When you are working on many different pieces that appear next to each other (for example, video thumbnails
+          for your YouTube channel, or covers for your Medium articles), choose one overall style for all of them and
+          stick to it as well.</p>
+      </div>
+    </section>
+    <section id="design-section-visualnoise"
+      class="design-section flex-display flex-column flex-center-vert flex-center-horiz bg-green-material font-blue">
+      <div>
+        <h2>Visual Noise</h2>
+        <p>The fewer the number of elements you use in your design, the better.</p>
+        <p>Why? It’s hard for the human brain to process information and make decisions with an overload of input. Use
+          as few decorative elements (typefaces, colours, shadows, frames, strokes, icons, patterns and so on) as
+          possible.</p>
+        <p>If something can be achieved with just 2 elements, don’t use 3. If something can be achieved with 10
+          elements, don’t use 20. You get it.</p>
+      </div>
+    </section>
+    <section id="design-section-contrast"
+      class="design-section flex-display flex-column flex-center-vert flex-center-horiz bg-green-dark font-sand">
+      <div>
+        <h2>Contrast</h2>
+        <strong>Make sure there is enough contrast between all elements.</strong>
+        <p>Why? Because things that are slightly different, but not different enough, create a kind of Uncanny Valley.
+          They feel eerie and repulsive to a human eye, and/or are difficult to comprehend. Now we don’t want that in
+          our designs, do we?</p>
+        <p>Elements of your design should be either <b>exactly the same</b>, or <b>significantly different</b>.</p>
+        <p>Issues with contrast mostly manifest themselves in 4 different ways:</p>
+        <strong>1: Color</strong>
+        <p>use dark on light colors and vice versa</p>
+        <p>Never use combinations like grey on a slightly darker grey or light pink on light blue — they are extremely
+          difficult to read/interact with.</p>
+        <strong>2. Size</strong>
+        <p>only put elements next to each other that are either exactly the same size, or a considerably different size.
+        </p>
+        <strong>3. Weight</strong>
+        <p>same as with Size, only put elements next to each other that are either exactly the same weight, or a
+          considerably different weight.</p>
+        <strong>4. Style</strong>
+        <p>don’t put one italic type next to another italic type, or one serif typeface next to another serif typeface.
+          Combine things that are different.</p>
+      </div>
+    </section>
+    <section id="design-section-color"
+      class="design-section flex-display flex-column flex-center-vert flex-center-horiz bg-blue font-sand">
+      <div>
+        <h2>Color</h2>
+        <strong>1. Color Set</strong>
+        <p>Do not use more than 2-3 different colors in your palette - different shades are ok.</p>
+        <strong>2. Saturation</strong>
+        <p>Do not use too much saturation. Start with less than you think, then adjust to taste.</p>
+        <strong>3. Contrast</strong>
+        <p>Be sure that the colors in your set have enough contrast.</p>
+        <p>To make sure the colors contrasts are fine turn your view to black and white and have a look at them there.</p>
+      </div>
+    </section>
+  </div>
+  </div>
+  <div class="lowest-container bg-green-material">
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+.upper-container {
+  width: 100%;
+  height: auto;
+}
+
+/* --- content --- */
+
+.visitenkarte {
+  width: 100%;
+  height: 25vh;
+}
+
+.visitenkarte>span {
+  font-size: 2em;
+  text-align: center;
+}
+
+.lower-container {
+  width: 100%;
+  height: auto;
+  font-size: 1.33em;
+}
+
+.lower-container > section {
+  width: 100%;
+}
+
+.lower-container > section > div {
+  width: 50%;
+}
+
+@media all and (orientation: portrait) {
+  .lower-container > section > div {
+    width: 90%;
+  }
+}
+
+.lowest-container {
+  width: 100%;
+  height: 30vh;
+}
