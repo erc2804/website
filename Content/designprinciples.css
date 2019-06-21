@@ -31,7 +31,7 @@
 }
 
 .lower-container > section > div strong {
-  display: block;
+  display: inline-block;
 }
 
 .lower-container > section > div figcaption {
@@ -59,6 +59,7 @@
 .lowest-container {
   width: 100%;
   min-height: 30vh;
+  font-size: .75em;
 }
 
 .lowest-container > strong {
