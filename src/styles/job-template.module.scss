@@ -1,0 +1,120 @@
+.info-block {
+    position: relative;
+    margin: 130px auto 0 auto;
+    width: 66%;
+    height: auto;
+    > .company-markdown-html-container {
+        padding-top: 40px;
+        > p {
+            font-family: "Arimo Regular";
+            font-size: 20px;
+            line-height: 150%;
+            letter-spacing: 0.5px;
+            > strong {
+                font-family: "Arimo Bold";
+            }
+        }
+    }
+    > .job-markdown-html-container {
+        margin-top: 100px;
+        > h1 {
+            font-family: "Arimo Bold";
+            font-size: 50px;
+            line-height: 162%;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid #F6F8F9;
+        }
+        > p {
+            margin-top: 60px;
+            font-family: "Arimo Regular";
+            font-size: 24px;
+            line-height: 134%;
+            letter-spacing: 0.5px;
+            > strong {
+                font-family: "Arimo Bold";
+            }
+        }
+        > ul {
+            font-family: "Arimo Regular";
+            font-size: 20px;
+            line-height: 150%;
+            letter-spacing: 0.5px;
+            list-style-type: circle;
+        }
+    }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    > a {
+        margin-top: 10px;
+    }
+}
+
+// ------ mobile general
+@media all and (orientation: portrait) and (max-width: 1023px), (orientation: landscape) and (max-height: 500px) {
+    .info-block {
+        margin-top: 110px;
+        > .company-markdown-html-container {
+            > p {
+                font-family: "Arimo Regular";
+                font-size: 16px;
+                line-height: 150%;
+                letter-spacing: 0.5px;
+            }
+        }
+        > .job-markdown-html-container {
+            > h1 {
+                font-family: "Arimo Bold";
+                font-size: 24px;
+                line-height: 162%;
+                letter-spacing: 0.03em;
+                border-bottom: 2px solid #F6F8F9;
+            }
+            > p {
+                margin-top: 35px;
+                font-family: "Arimo Bold";
+                font-size: 20px;
+                line-height: 104%;
+                letter-spacing: 0.5px;
+            }
+            > ul {
+                font-family: "Arimo Regular";
+                font-size: 16px;
+                line-height: 150%;
+                letter-spacing: 0.5px;
+                list-style-type: circle;
+            }
+        }
+    }
+}
+
+// ------ mobile landscape
+@media all and (orientation: landscape) and (max-height: 500px) {
+    .info-block {
+        margin-top: 80px;
+        > .company-markdown-html-container {
+            padding-top: 20px;
+        }
+    }
+}
+
+// ------ mobile portrait
+@media all and (orientation: portrait) and (max-width: 600px) {
+    .info-block {
+        width: 100%;
+        margin-top: 80px;
+        > .company-markdown-html-container {
+            padding-top: 10px;
+        }
+    }
+    .button-container {
+        align-items: flex-start;
+    }
+}

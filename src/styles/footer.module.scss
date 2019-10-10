@@ -1,0 +1,177 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0066FF;
+  width: 100%;
+  height: 650px;
+  > .info-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    > .job-info-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      height: auto;
+      > span, > a {
+        width: 83.5%;
+        color: #fff;
+      }
+      > span {
+        margin-top: 87px;
+      }
+      > a {
+        margin-top: 60px;
+        text-decoration: underline;
+      }
+    }
+    > .site-info-wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 50%;
+      height: auto;
+      > ul {
+        color: #fff;
+        &:last-child {
+          margin-left: 100px;
+        }
+        margin-top: 87px;
+        list-style-type: none;
+        > li {
+          color: rgba(255, 255, 255, 0.85);
+          margin-bottom: 25px;
+          &:first-child {
+            margin-bottom: 50px;
+            color: #fff;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          > a {
+            color: rgba(255, 255, 255, 0.85);
+          }
+        }
+      }
+    }
+  }
+  > .caption-wrapper {
+    display: flex;
+    flex-direction: row;
+    > div {
+      width: 50%;
+    }
+    > .logo-container {
+      > .logowhite-img {
+        width: 200px;
+        height: 36px;
+        background-position-x: -5px;
+        background-image: url(../images/logo-white.png);
+      }
+    }
+    > .caption-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 40px;
+      margin-bottom: 100px;
+      > span {
+        color: #fff;
+      }
+      > .dbeclogo-img {
+        width: 250px;
+        height: 30px;
+        margin-left: 16px;
+        background-image: url(../images/footer/dbeclogo.png);
+      }
+    }
+  }
+}
+
+@media all and (orientation: portrait) and (max-width: 1023px) {
+  .footer {
+    justify-content: normal;
+    height: 520px;
+    > .info-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      > .job-info-wrapper, > .site-info-wrapper > ul:first-child {
+        display: none;
+      }
+      > .site-info-wrapper {
+        width: 100%;
+        > ul {
+          &:last-child {
+            margin-left: 0;
+            padding-left: 0;
+          }
+          margin-top: 40px;
+          > li {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+            &:first-child {
+              margin-bottom: 30px;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+            > a {
+              color: rgba(255, 255, 255, 0.85);
+            }
+          }
+        }
+      }
+    }
+    > .caption-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+      > div {
+        width: 50%;
+      }
+      > .logo-container {
+        > .logowhite-img {
+          width: 200px;
+          height: 36px;
+          background-position-x: -5px;
+          background-image: url(../images/logo-white.png);
+        }
+      }
+      > .caption-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 0;
+        margin-top: 20px;
+        margin-bottom: 0;
+        > .dbeclogo-img {
+          width: 250px;
+          height: 30px;
+          margin-top: 10px;
+          margin-left: 0;
+          background-position-x: -2px;
+        }
+      }
+    }
+  }
+}
+
+// ------ mobile landscape
+@media all and (orientation: landscape) and (max-height: 500px) {
+  .footer {
+    .info-wrapper {
+      > .job-info-wrapper, > .site-info-wrapper > ul:first-child {
+        display: none;
+      }
+      > .site-info-wrapper {
+        width: 100%;
+      }
+    }
+  }
+}
