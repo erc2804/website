@@ -1,6 +1,5 @@
 import React from "react"
 import Header from "./header"
-import Footer from "./footer"
 import { Helmet } from "react-helmet"
 // --- styles
 import "../styles/global.scss"
@@ -8,19 +7,18 @@ import layoutStyles from "../styles/layout.module.scss"
 
 const Layout = props => {
   return (
-    <div className={layoutStyles.container}>
+    <div className={layoutStyles.layoutWrapper}>
       <Helmet>
-        <title>{props.title} - infraView GmbH</title>
+        <title>{props.title} - ercancicek.de</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no"
         />
       </Helmet>
-      <div className={layoutStyles.content}>
+      <div className={layoutStyles.layoutContentContainer}>
         <Header />
         {props.children}
       </div>
-      <Footer />
     </div>
   )
 }
