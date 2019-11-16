@@ -1,7 +1,40 @@
-.header-container {
-    position: fixed;
-    top: 0;
-    left: 0;
+@import "utilities.scss";
+@import "theme.scss";
+
+.header-wrapper {
+  @include flex(row, none, flex-end, none, none);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 10%;
+  > .header-container {
+    @include flex(row, space-between, center, none, none);
+    position: relative;
     width: 100%;
-    height: 64px;
+    height: 95%;
+    > .logo-container {
+        display: contents;        
+        > img {
+          width: auto;
+          height: 100%;
+        }
+    }
+    > .nav-wrapper {
+        @include flex(row, space-between, center, wrap, none);
+        > .nav-element {
+            &.nav-active {
+                font-family: "Bold";
+            }
+            &:not(:first-child) {
+                margin-left: 36px;
+            }
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.03em;
+        }
+    }
+  }
 }

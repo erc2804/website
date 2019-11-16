@@ -3,10 +3,10 @@ import Layout from "../components/layout"
 // --- styles
 import "../styles/globals.scss"
 
-class IndexPage extends Component {
+class PortfolioPage extends Component {
   render() {
     return (
-      <Layout title="Home">
+      <Layout title="Portfolio">
         <div>
         </div>
       </Layout>
@@ -14,4 +14,4 @@ class IndexPage extends Component {
   }
 }
 
-export default IndexPage
+export default PortfolioPage

@@ -1,0 +1,28 @@
+$fonts: 
+    "AvenirNext-Bold" "Bold", 
+    "AvenirNext-Demi" "Demi",
+    "AvenirNext-Regular" "Regular";
+$colors: (
+  dark1: #05386b,
+  dark2: #379683,
+  light1: #5cdb95,
+  light2: #8ee4af,
+  lightest: #edf5e1,
+);
+
+@each $fileName, $varName in $fonts {
+  @font-face {
+    font-family: $varName;
+    src: url("../fonts/#{$fileName}.eot");
+    src: url("../fonts/#{$fileName}.eot?#iefix") format("embedded-opentype"),
+      url("../fonts/#{$fileName}.woff2") format("woff2"),
+      url("../fonts/#{$fileName}.woff") format("woff"),
+      url("../fonts/#{$fileName}.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@mixin get-color($col) {
+  background-color: map-get($colors, $col);
+}

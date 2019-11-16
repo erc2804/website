@@ -1,13 +1,10 @@
 import React from "react"
 import Header from "./header"
 import { Helmet } from "react-helmet"
-// --- styles
-import "../styles/global.scss"
-import layoutStyles from "../styles/layout.module.scss"
 
 const Layout = props => {
   return (
-    <div className={layoutStyles.layoutWrapper}>
+    <div>
       <Helmet>
         <title>{props.title} - ercancicek.de</title>
         <meta
@@ -15,7 +12,7 @@ const Layout = props => {
           content="width=device-width, initial-scale=1.0, user-scalable=no"
         />
       </Helmet>
-      <div className={layoutStyles.layoutContentContainer}>
+      <div>
         <Header />
         {props.children}
       </div>
