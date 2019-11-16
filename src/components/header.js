@@ -30,7 +30,7 @@ class Header extends Component {
       },
     ]
     return (
-      <header className={headerStyles.headerWrapper}>
+      <header className={[headerStyles.headerWrapper, "default-padding"].join(" ")}>
         <div className={headerStyles.headerContainer}>
           <Link className={headerStyles.logoContainer} to="/">
             <img src={logoImg} alt="logo" />

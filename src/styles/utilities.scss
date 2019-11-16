@@ -1,46 +1,47 @@
+$headerHeight: 56px;
+
 // --- flexbox
 @mixin flex($direction, $justify, $align, $wrap, $flow) {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-  
-    @if ($direction != none) {
-      -webkit-flex-direction: $direction;
-      -moz-flex-direction: $direction;
-      -ms-flex-direction: $direction;
-      flex-direction: $direction;
-    }
-  
-    @if ($justify != none) {
-      -webkit-justify-content: $justify;
-      -moz-justify-content: $justify;
-      -ms-justify-content: $justify;
-      justify-content: $justify;
-      -ms-flex-pack: $justify;
-    }
-  
-    @if ($align != none) {
-      -webkit-align-items: $align;
-      -moz-align-items: $align;
-      -ms-align-items: $align;
-      -ms-flex-align: $align;
-      align-items: $align;
-    }
-  
-    @if ($wrap != none) {
-      -webkit-flex-wrap: $wrap;
-      -moz-flex-wrap: $wrap;
-      -ms-flex-wrap: $wrap;
-      flex-wrap: $wrap;
-    }
-  
-    @if ($flow != none) {
-      -webkit-flex-flow: $flow;
-      -moz-flex-flow: $flow;
-      -ms-flex-flow: $flow;
-      flex-flow: $flow;
-    }
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  @if ($direction != none) {
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
   }
-  
+
+  @if ($justify != none) {
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    -ms-justify-content: $justify;
+    justify-content: $justify;
+    -ms-flex-pack: $justify;
+  }
+
+  @if ($align != none) {
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    -ms-align-items: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+  }
+
+  @if ($wrap != none) {
+    -webkit-flex-wrap: $wrap;
+    -moz-flex-wrap: $wrap;
+    -ms-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+  }
+
+  @if ($flow != none) {
+    -webkit-flex-flow: $flow;
+    -moz-flex-flow: $flow;
+    -ms-flex-flow: $flow;
+    flex-flow: $flow;
+  }
+}
