@@ -14,9 +14,6 @@
     > .adpillar-container {
       margin-top: 70px;
       > div {
-        font-family: "Regular";
-        font-size: 6em;
-        letter-spacing: 2px;
         text-transform: uppercase;
         &.name-container {
           > span {
@@ -26,15 +23,18 @@
           }
         }
         &.profession-container {
+          position: absolute;
           @include flex(none, none, none, none, none);
           > span {
             &:first-child {
               color: rgba(0, 0, 0, 0.66);
             }
+            &:nth-child(2) {
+              color: #000;
+            }
             &:last-child {
-              color: rgba(0, 0, 0, 0.66);
+              color: #000;
               animation: blink 1s step-end infinite;
-              border-right: 4px solid rgba(0, 0, 0, 0.66);
             }
           }
         }
@@ -65,18 +65,17 @@
           @include get-color(dark2);
         }
         > span {
-          letter-spacing: 0.03em;
           text-align: center;
           color: #fff;
         }
-        > .label {
-          font-family: "Demi";
-          font-size: 3em;
-        }
-        > .info {
-          font-family: "Regular";
-          font-size: 1.66em;
-          line-height: 150%;
+        > .img-container {
+          width: 100%;
+          height: 40%;
+          @include flex(none, center, center, none, none);
+          > img {
+            max-width: 50%;
+            max-height: 80%;
+          }
         }
       }
     }
@@ -84,10 +83,36 @@
 }
 
 @keyframes blink {
-  from, to { 
-      border-color: transparent 
+  0%, 100% { 
+      opacity: 0;
   }
   50% { 
-      border-color: rgba(0, 0, 0, 0.66);
+      opacity: 1;
+  }
+}
+
+@media all and (orientation: portrait) and (max-width: 600px) {
+  .index-page-container {
+    > .bottombar-wrapper {
+      > .bottombar-container {
+        @include flex(column, none, none, none, none);
+        > .bottombar {
+          width: 100%;
+          @include flex(row, center, center, none, wrap);
+          &:not(:first-child) {
+            margin-top: 16px;
+          }
+          > .img-container {
+            position: relative;
+            width: auto;
+            height: 50%;
+            > img {
+              max-width: none;
+              max-height: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 }

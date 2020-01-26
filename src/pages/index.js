@@ -12,18 +12,80 @@ class IndexPage extends Component {
   constructor() {
     super()
     this.state = {
+      orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
       currentAdpillarText: "",
-      finalAdpillarText: "Developer"
+      finalAdpillarTexts: ["Designer", "Developer"]
     }
+  }
+
+  adpillarIntval = null;
+  clearAdpillarIntval = null;
+  initialAdpillarTimeout = null;
+  nextAdpillarTimeout = null;
+  nextAdpillarWordTimeout = null;
+  adpillarWordIdx = 0;
+
+  componentDidMount() {
+    this.initialAdpillarTimeout = setTimeout(() => {
+      this.startAdpillarAnim(this.adpillarWordIdx);
+    }, 1000);
+    this.checkOrientation();
+    window.addEventListener("resize", this.checkOrientation.bind(this));
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.adpillarIntval);
+    clearInterval(this.clearAdpillarIntval);
+    clearTimeout(this.initialAdpillarTimeout);
+    clearTimeout(this.nextAdpillarTimeout);
+    clearTimeout(this.nextAdpillarWordTimeout);
+    window.removeEventListener("resize", this.checkOrientation.bind(this));
+  }
+
+  startAdpillarAnim(wordIdx) {
+    let finalAdpillarIdx = 0;
+    this.adpillarIntval = setInterval(() => {
+      this.setState({
+        currentAdpillarText: this.state.currentAdpillarText + this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx]
+      });
+      finalAdpillarIdx++;
+      if(!this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx]) {
+        clearInterval(this.adpillarIntval);
+        this.nextAdpillarWord();
+      }
+    }, 150);
+  }
+
+  nextAdpillarWord() {
+    this.adpillarWordIdx++;
+    if(this.state.finalAdpillarTexts[this.adpillarWordIdx]) {
+      this.nextAdpillarWordTimeout = setTimeout(() => {
+        this.clearAdpillar();
+      }, 2000);
+    }
+  }
+
+  clearAdpillar() {
+    this.clearAdpillarIntval = setInterval(() => {
+      this.setState({
+        currentAdpillarText: this.state.currentAdpillarText.slice(0, -1)
+      });
+      if(this.state.currentAdpillarText.length === 0) {
+        clearInterval(this.clearAdpillarIntval);
+        this.nextAdpillarTimeout = setTimeout(() => {
+          this.startAdpillarAnim(this.adpillarWordIdx);
+        }, 500)
+      }
+    }, 50); 
+  }
+
+  checkOrientation() {
+    this.setState({
+      orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape"
+    });
   }
   
   render() {
-    [...this.state.finalAdpillarText].forEach((char, index) => {
-      setTimeout(() => {
-        console.log("char: ", char);
-      }, 500 * index);
-    });
-
     const bottombars = [
       {
         label: "Angular",
@@ -47,30 +109,29 @@ class IndexPage extends Component {
         <div className={indexStyles.indexPageContainer}>
           <div className={indexStyles.adpillarWrapper}>
             <div className={indexStyles.adpillarContainer}>
-              <div className={indexStyles.nameContainer}>
+              <div className={`${indexStyles.nameContainer} ${this.state.orientation === "landscape" ? 'font-header-1' : "font-header-2"}`}>
                 <span>Ercan</span>
                 &nbsp;
                 <span>Cicek</span>
               </div>
-              <div className={indexStyles.professionContainer}>
+              <div className={`${indexStyles.professionContainer} ${this.state.orientation === "landscape" ? 'font-header-1' : "font-header-2"}`}>
                 <span>UX</span>
                 &nbsp;
-                <span></span>
+                <span>{this.state.currentAdpillarText}</span>
+                <span>_</span>
               </div>
             </div>
           </div>
-          <div
-            className={[indexStyles.bottombarWrapper, "default-padding"].join(
-              " "
-            )}
-          >
+          <div className={`${indexStyles.bottombarWrapper} default-padding`}>
             <div className={indexStyles.bottombarContainer}>
               {bottombars.map((btmBar, i) => (
                 <div key={i} className={indexStyles.bottombar}>
-                  <img src={btmBar.img} alt="" />
-                  <span className={indexStyles.label}>{btmBar.label}</span>
-                  <span className={indexStyles.info}>
-                    {btmBar.info} <br /> of experience
+                  <div className={indexStyles.imgContainer}>
+                    <img src={btmBar.img} alt="" />
+                  </div>
+                  <span className="font-header-3">{btmBar.label}</span>
+                  <span className="font-header-4">
+                    {btmBar.info} <br className={this.state.orientation === "landscape" ? "" : "deepHide"} /> of experience
                   </span>
                 </div>
               ))}

@@ -6,6 +6,37 @@ import headerStyles from "../styles/header.module.scss"
 // --- images
 import logoImg from "../images/logo.svg"
 class Header extends Component {
+  constructor() {
+    super()
+    this.state = {
+      orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
+      navMenuOpen: false
+    }
+    this.toggleNavMenu = this.toggleNavMenu.bind(this);
+  }
+
+  componentDidMount() {
+    this.onResize();
+    window.addEventListener("resize", this.onResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize.bind(this));
+  }
+
+  toggleNavMenu() {
+    this.setState({
+      navMenuOpen: !this.state.navMenuOpen
+    });
+  }
+
+  onResize() {
+    this.setState({
+      orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
+      navMenuOpen: false
+    });
+  }
+
   render() {
     const navbarElements = [
       {
@@ -30,15 +61,15 @@ class Header extends Component {
       },
     ]
     return (
-      <header className={[headerStyles.headerWrapper, "default-padding"].join(" ")}>
+      <header className={`${headerStyles.headerWrapper} default-padding ${window.pageYOffset > 0 ? headerStyles.showShdw : ''}`}>
         <div className={headerStyles.headerContainer}>
           <Link className={headerStyles.logoContainer} to="/">
             <img src={logoImg} alt="logo" />
           </Link>
-          <div className={headerStyles.navWrapper}>
+          <div className={`${headerStyles.navWrapper} ${this.state.orientation === "portrait" ? 'deepHide' : ''}`}>
             {navbarElements.map((navElem, i) => (
               <Link
-                className={headerStyles.navElement}
+                className={`${headerStyles.navElement} font-body-1`}
                 activeClassName={headerStyles.navActive}
                 key={i}
                 to={navElem.path}
@@ -47,7 +78,13 @@ class Header extends Component {
               </Link>
             ))}
           </div>
+          <div className={`${headerStyles.burgerMenuContainer} ${this.state.orientation === "portrait" ? '' : 'deepHide'}`} onClick={this.toggleNavMenu}>
+            <div className={this.state.navMenuOpen ? headerStyles.animate : ''}></div>
+            <div className={this.state.navMenuOpen ? headerStyles.animate : ''}></div>
+            <div className={this.state.navMenuOpen ? headerStyles.animate : ''}></div>
+          </div>
         </div>
+        <div className={`${headerStyles.navMenu} ${this.state.navMenuOpen ? '' : 'deepHide'}`}></div>
       </header>
     )
   }

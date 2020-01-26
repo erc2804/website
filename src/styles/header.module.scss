@@ -1,6 +1,7 @@
 @import "utilities.scss";
 @import "theme.scss";
-
+$relW: 40px; /* --- customizable in em or px --- */
+$relH: $relW * (7/8); /* --- do not change this size --- */
 .header-wrapper {
   @include flex(row, none, flex-end, none, none);
   position: fixed;
@@ -8,7 +9,12 @@
   left: 0;
   width: 100%;
   height: $headerHeight;
+  background-color: #fff;
   z-index: 2;
+  transition: box-shadow 0.1s ease;
+  &.show-shdw {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
   > .header-container {
     @include flex(row, space-between, center, none, none);
     position: relative;
@@ -18,7 +24,7 @@
       display: contents;
       > img {
         width: auto;
-        height: 100%;
+        height: 90%;
       }
     }
     > .nav-wrapper {
@@ -32,9 +38,64 @@
         }
         color: #000;
         text-decoration: none;
-        font-size: 14px;
-        letter-spacing: 0.03em;
       }
     }
+    > .burger-menu-container {
+      position: relative;
+      width: $relW;
+      height: $relH;
+      cursor: pointer;
+      overflow: hidden;
+      > div {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 25%;
+        background-color: #000;
+        border-radius: 15px;
+        -webkit-transform-origin: right;
+        -ms-transform-origin: right;
+        transform-origin: right;
+        &:nth-child(1) {
+          top: 0;
+          right: 0;
+          transition: transform 0.3s ease, right 0.3s ease;
+          &.animate {
+            right: 5%;
+            -webkit-transform: rotate(-41deg);
+            -ms-transform: rotate(-41deg);
+            transform: rotate(-41deg);
+          }
+        }
+        &:nth-child(2) {
+          top: 37.5%;
+          transition: opacity 0.15s ease 0.15s;
+          opacity: 1;
+          &.animate {
+            transition-delay: 0s !important;
+            opacity: 0;
+          }
+        }
+        &:nth-child(3) {
+          top: 75%;
+          right: 0;
+          transition: transform 0.3s ease, right 0.3s ease;
+          &.animate {
+            right: 5%;
+            -webkit-transform: rotate(41deg);
+            -ms-transform: rotate(41deg);
+            transform: rotate(41deg);
+          }
+        }
+      }
+    }
+  }
+  > .nav-menu {
+    position: fixed;
+    top: $headerHeight;
+    left: 0;
+    width: 100%;
+    height: calc(100% - #{$headerHeight});
+    background: #fff;
   }
 }
