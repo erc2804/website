@@ -3,138 +3,158 @@ import Layout from "../components/layout"
 // --- styles
 import "../styles/globals.scss"
 import indexStyles from "../styles/index.module.scss"
-// --- images
-import angularImg from "../images/home/angular.svg"
-import adobeccImg from "../images/home/adobe-cc.svg"
-import figmaImg from "../images/home/figma.svg"
-
 class IndexPage extends Component {
   constructor() {
     super()
     this.state = {
-      orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
+      orientation: window.matchMedia("(orientation: portrait)").matches
+        ? "portrait"
+        : "landscape",
       currentAdpillarText: "",
-      finalAdpillarTexts: ["Designer", "Developer"]
+      finalAdpillarTexts: ["Designer", "Developer"],
+      wndw: {
+        w: window.innerWidth,
+        h: window.innerHeight,
+      },
     }
   }
 
-  adpillarIntval = null;
-  clearAdpillarIntval = null;
-  initialAdpillarTimeout = null;
-  nextAdpillarTimeout = null;
-  nextAdpillarWordTimeout = null;
-  adpillarWordIdx = 0;
+  adpillarIntval = null
+  clearAdpillarIntval = null
+  initialAdpillarTimeout = null
+  nextAdpillarTimeout = null
+  nextAdpillarWordTimeout = null
+  adpillarWordIdx = 0
 
   componentDidMount() {
     this.initialAdpillarTimeout = setTimeout(() => {
-      this.startAdpillarAnim(this.adpillarWordIdx);
-    }, 1000);
-    this.checkOrientation();
-    window.addEventListener("resize", this.checkOrientation.bind(this));
+      this.startAdpillarAnim(this.adpillarWordIdx)
+    }, 300)
+    this.onResize()
+    window.addEventListener("resize", this.onResize.bind(this))
   }
 
   componentWillUnmount() {
-    clearInterval(this.adpillarIntval);
-    clearInterval(this.clearAdpillarIntval);
-    clearTimeout(this.initialAdpillarTimeout);
-    clearTimeout(this.nextAdpillarTimeout);
-    clearTimeout(this.nextAdpillarWordTimeout);
-    window.removeEventListener("resize", this.checkOrientation.bind(this));
+    clearInterval(this.adpillarIntval)
+    clearInterval(this.clearAdpillarIntval)
+    clearTimeout(this.initialAdpillarTimeout)
+    clearTimeout(this.nextAdpillarTimeout)
+    clearTimeout(this.nextAdpillarWordTimeout)
+    window.removeEventListener("resize", this.onResize.bind(this))
   }
 
-  startAdpillarAnim(wordIdx) {
-    let finalAdpillarIdx = 0;
+  startAdpillarAnim() {
+    let finalAdpillarIdx = 0
     this.adpillarIntval = setInterval(() => {
       this.setState({
-        currentAdpillarText: this.state.currentAdpillarText + this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx]
-      });
-      finalAdpillarIdx++;
-      if(!this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx]) {
-        clearInterval(this.adpillarIntval);
-        this.nextAdpillarWord();
+        currentAdpillarText:
+          this.state.currentAdpillarText +
+          this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx],
+      })
+      finalAdpillarIdx++
+      if (
+        !this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx]
+      ) {
+        clearInterval(this.adpillarIntval)
+        this.nextAdpillarWord()
       }
-    }, 150);
+    }, 150)
   }
 
   nextAdpillarWord() {
-    this.adpillarWordIdx++;
-    if(this.state.finalAdpillarTexts[this.adpillarWordIdx]) {
+    this.adpillarWordIdx++
+    if (this.state.finalAdpillarTexts[this.adpillarWordIdx]) {
       this.nextAdpillarWordTimeout = setTimeout(() => {
-        this.clearAdpillar();
-      }, 2000);
+        this.clearAdpillar()
+      }, 2000)
     }
   }
 
   clearAdpillar() {
     this.clearAdpillarIntval = setInterval(() => {
       this.setState({
-        currentAdpillarText: this.state.currentAdpillarText.slice(0, -1)
-      });
-      if(this.state.currentAdpillarText.length === 0) {
-        clearInterval(this.clearAdpillarIntval);
+        currentAdpillarText: this.state.currentAdpillarText.slice(0, -1),
+      })
+      if (this.state.currentAdpillarText.length === 0) {
+        clearInterval(this.clearAdpillarIntval)
         this.nextAdpillarTimeout = setTimeout(() => {
-          this.startAdpillarAnim(this.adpillarWordIdx);
+          this.startAdpillarAnim(this.adpillarWordIdx)
         }, 500)
       }
-    }, 50); 
+    }, 50)
   }
 
-  checkOrientation() {
+  onResize() {
     this.setState({
-      orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape"
-    });
+      orientation: window.matchMedia("(orientation: portrait)").matches
+        ? "portrait"
+        : "landscape",
+      wndw: {
+        w: window.innerWidth,
+        h: window.innerHeight,
+      },
+    })
   }
-  
+
   render() {
-    const bottombars = [
+    const allSkills = [
       {
         label: "Angular",
-        img: angularImg,
-        info: "4 years",
+      },
+      {
+        label: "React",
       },
       {
         label: "Adobe CC",
-        img: adobeccImg,
-        info: "6 years",
       },
       {
         label: "Figma",
-        img: figmaImg,
-        info: "1 year",
       },
     ]
-
     return (
-      <Layout title="Home">
-        <div className={indexStyles.indexPageContainer}>
-          <div className={indexStyles.adpillarWrapper}>
-            <div className={indexStyles.adpillarContainer}>
-              <div className={`${indexStyles.nameContainer} ${this.state.orientation === "landscape" ? 'font-header-1' : "font-header-2"}`}>
-                <span>Ercan</span>
-                &nbsp;
-                <span>Cicek</span>
-              </div>
-              <div className={`${indexStyles.professionContainer} ${this.state.orientation === "landscape" ? 'font-header-1' : "font-header-2"}`}>
-                <span>UX</span>
-                &nbsp;
-                <span>{this.state.currentAdpillarText}</span>
-                <span>_</span>
-              </div>
-            </div>
-          </div>
-          <div className={`${indexStyles.bottombarWrapper} default-padding`}>
-            <div className={indexStyles.bottombarContainer}>
-              {bottombars.map((btmBar, i) => (
-                <div key={i} className={indexStyles.bottombar}>
-                  <div className={indexStyles.imgContainer}>
-                    <img src={btmBar.img} alt="" />
-                  </div>
-                  <span className="font-header-3">{btmBar.label}</span>
-                  <span className="font-header-4">
-                    {btmBar.info} <br className={this.state.orientation === "landscape" ? "" : "deepHide"} /> of experience
-                  </span>
+      <Layout title="Home" darkHeader={true}>
+        <div className={indexStyles.indexPageWrapper}>
+          <div className={indexStyles.indexPageContainer}>
+            <div className={indexStyles.heroBlock}>
+              <div className={indexStyles.adpillarContainer}>
+                <div
+                  className={`${
+                    this.state.wndw.w > 700 ? "font-header-1" : "font-header-2"
+                  }`}
+                >
+                  <span className="text-color-light1">Ercan</span>
+                  &nbsp;
+                  <span className="text-color-lightest">Cicek</span>
                 </div>
-              ))}
+                <div
+                  className={`${indexStyles.professionContainer} ${
+                    this.state.wndw.w > 700 ? "font-header-1" : "font-header-2"
+                  }`}
+                >
+                  <span className="text-color-lightest">UX</span>
+                  &nbsp;
+                  <span className="text-color-light1">
+                    {this.state.currentAdpillarText}
+                  </span>
+                  <span className="text-color-light1">_</span>
+                </div>
+              </div>
+              <div className={indexStyles.skillsContainer}>
+                {allSkills.map((skill, i) => (
+                  <div className={indexStyles.skillsLabel} key={i}>
+                    <button className="font-subheading-1 text-color-lightest">
+                      &nbsp;{skill.label}
+                    </button>
+                    <span
+                      className={`${
+                        i < allSkills.length - 1 ? "" : "deepHide"
+                      } font-subheading-1 text-color-light1`}
+                    >
+                      &nbsp;&#47;
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -3,14 +3,16 @@ import { Link } from "gatsby"
 // --- styles
 import "../styles/globals.scss"
 import headerStyles from "../styles/header.module.scss"
-// --- images
-import logoImg from "../images/logo.svg"
 class Header extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
-      navMenuOpen: false
+      navMenuOpen: false,
+      wndw: {
+        w: window.innerWidth,
+        h: window.innerHeight
+      }
     }
     this.toggleNavMenu = this.toggleNavMenu.bind(this);
   }
@@ -33,7 +35,11 @@ class Header extends Component {
   onResize() {
     this.setState({
       orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
-      navMenuOpen: false
+      navMenuOpen: false,
+      wndw: {
+        w: window.innerWidth,
+        h: window.innerHeight
+      }
     });
   }
 
@@ -61,12 +67,57 @@ class Header extends Component {
       },
     ]
     return (
-      <header className={`${headerStyles.headerWrapper} default-padding ${window.pageYOffset > 0 ? headerStyles.showShdw : ''}`}>
+      <header
+        className={`${headerStyles.headerWrapper} ${
+          this.props.mode === "dark" ? headerStyles.darkHeader : ""
+        } ${window.pageYOffset > 0 ? headerStyles.showShdw : ""} background-color-flatwhite`}
+      >
         <div className={headerStyles.headerContainer}>
           <Link className={headerStyles.logoContainer} to="/">
-            <img src={logoImg} alt="logo" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            data-name="2_logo"
+            viewBox="0 0 806.444 801"
+          >
+            <path
+              fill="#fff"
+              stroke="#3ddc97"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="76.843"
+              d="M55.039 400L217.039 400"
+            ></path>
+            <path
+              fill="#fff"
+              stroke="#3ddc97"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="75.078"
+              d="M237.039 571l-198-170.106zm-199.5-171.394l198-170.106z"
+            ></path>
+            <path
+              fill="#fff"
+              stroke="#46237a"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="81"
+              d="M474.539 40.5L330.539 760.5"
+            ></path>
+            <path
+              fill="#fff"
+              stroke="#3ddc97"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="75.078"
+              d="M569.405 229.115l198 170.105zm199.5 171.394l-198 170.106z"
+            ></path>
+          </svg>
           </Link>
-          <div className={`${headerStyles.navWrapper} ${this.state.orientation === "portrait" ? 'deepHide' : ''}`}>
+          <div
+            className={`${headerStyles.navWrapper} ${
+              this.state.wndw.w < 700 ? "deepHide" : ""
+            }`}
+          >
             {navbarElements.map((navElem, i) => (
               <Link
                 className={`${headerStyles.navElement} font-body-1`}
@@ -78,13 +129,28 @@ class Header extends Component {
               </Link>
             ))}
           </div>
-          <div className={`${headerStyles.burgerMenuContainer} ${this.state.orientation === "portrait" ? '' : 'deepHide'}`} onClick={this.toggleNavMenu}>
-            <div className={this.state.navMenuOpen ? headerStyles.animate : ''}></div>
-            <div className={this.state.navMenuOpen ? headerStyles.animate : ''}></div>
-            <div className={this.state.navMenuOpen ? headerStyles.animate : ''}></div>
+          <div
+            className={`${headerStyles.burgerMenuContainer} ${
+              this.state.wndw.w < 700 ? "" : "deepHide"
+            }`}
+            onClick={this.toggleNavMenu}
+          >
+            <div
+              className={this.state.navMenuOpen ? headerStyles.animate : ""}
+            ></div>
+            <div
+              className={this.state.navMenuOpen ? headerStyles.animate : ""}
+            ></div>
+            <div
+              className={this.state.navMenuOpen ? headerStyles.animate : ""}
+            ></div>
           </div>
         </div>
-        <div className={`${headerStyles.navMenu} ${this.state.navMenuOpen ? '' : 'deepHide'}`}></div>
+        <div
+          className={`${headerStyles.navMenu} ${
+            this.state.navMenuOpen ? "" : "deepHide"
+          }`}
+        ></div>
       </header>
     )
   }

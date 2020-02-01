@@ -16,7 +16,7 @@ const Layout = props => {
         />
       </Helmet>
       <div className={layoutStyles.masterContainer}>
-        <Header />
+        <Header mode={props.darkHeader ? 'dark' : ''}/>
         {props.children}
       </div>
     </div>

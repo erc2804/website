@@ -15,11 +15,13 @@ $fonts: "AvenirNext-Bold" "Bold", "AvenirNext-Demi" "Demi",
   }
 }
 
+// --- font styles as classes
 $fontStyles: 
 "header-1" "Regular" 96px 100% 2px,
 "header-2" "Regular" 60px 100% 1.5px,
 "header-3" "Demi" 40px 150% 0.03em,
 "header-4" "Regular" 24px 150% 0.03em,
+"subheading-1" "Regular" 20px 100% 0.03em,
 "body-1" "Regular" 16px 100% 0.03em,
 "body-2" "Regular" 14px 100% 0.03em;
 
@@ -28,6 +30,7 @@ $mobileFontStyles:
 "header-2" "Regular" 30px 100% 1.5px,
 "header-3" "Demi" 40px 150% 0.03em,
 "header-4" "Regular" 24px 150% 0.03em,
+"subheading-1" "Regular" 20px 100% 0.03em,
 "body-1" "Regular" 16px 100% 0.03em,
 "body-2" "Regular" 14px 100% 0.03em;
 
@@ -42,13 +45,15 @@ $mobileFontStyles:
 
 @media all and (max-width: 1200px), (max-height: 640px) {
   @each $name, $font, $size, $lineHeight, $letterSpacing in $fontStyles {
-    .font-#{$name} {
-      font-size: $size / 1.3;
+    @if(str-index($name, 'header')) {
+      .font-#{$name} {
+        font-size: $size / 1.3;
+      }
     }
   }
 }
 
-@media all and (orientation: portrait) and (max-width: 600px) {
+@media all and (orientation: portrait) and (max-width: 700px) {
   @each $name, $font, $size, $lineHeight, $letterSpacing in $mobileFontStyles {
     .font-#{$name} {
       font-family: $font;
@@ -59,15 +64,31 @@ $mobileFontStyles:
   }
 }
 
-// --- coloring
+// --- coloring as vars
 $colors: (
   dark1: #05386b,
   dark2: #379683,
   light1: #5cdb95,
   light2: #8ee4af,
   lightest: #edf5e1,
+  flatwhite: #ffffff,
 );
 
-@mixin get-color($col) {
-  background-color: map-get($colors, $col);
+@mixin get-color($col, $asTextCol) {
+  @if $asTextCol {
+    color: map-get($colors, $col);
+  }
+  @else {
+    background-color: map-get($colors, $col);
+  }
+}
+
+// --- coloring as classes
+@each $name, $hexCol in $colors {
+  .text-color-#{$name} {
+    color: $hexCol;
+  }
+  .background-color-#{$name} {
+    background-color: $hexCol;
+  }
 }

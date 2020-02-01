@@ -1,80 +1,51 @@
 @import "utilities.scss";
 @import "theme.scss";
 
-.index-page-container {
+.index-page-wrapper {
   position: relative;
   width: 100%;
-  height: calc(100vh - #{$headerHeight});
-  margin-top: #{$headerHeight};
-  > .adpillar-wrapper {
+  height: 100%;
+  background-image: url("../images/index/bg-landscape.jpg");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: cover;
+  > .index-page-container {
     position: relative;
     width: 100%;
     height: 100%;
-    @include flex(none, center, none, none, none);
-    > .adpillar-container {
-      margin-top: 70px;
-      > div {
-        text-transform: uppercase;
-        &.name-container {
-          > span {
-            &:last-child {
-              color: rgba(0, 0, 0, 0.66);
-            }
-          }
-        }
-        &.profession-container {
-          position: absolute;
-          @include flex(none, none, none, none, none);
-          > span {
-            &:first-child {
-              color: rgba(0, 0, 0, 0.66);
-            }
-            &:nth-child(2) {
-              color: #000;
-            }
-            &:last-child {
-              color: #000;
-              animation: blink 1s step-end infinite;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,.75);
+    z-index: 2;
+    > .hero-block {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      > .adpillar-container {
+        display: inline-block;
+        margin-top: 13%;
+        margin-left: 10%;
+        > div {
+          text-transform: uppercase;
+          &.profession-container {
+            > span {
+              &:last-child {
+                animation: blink 1s step-end infinite;
+              }
             }
           }
         }
       }
-    }
-  }
-  > .bottombar-wrapper {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 45%;
-    > .bottombar-container {
-      width: 100%;
-      height: 100%;
-      @include flex(row, space-between, flex-end, none, none);
-      > .bottombar {
-        width: 21%;
-        height: 100%;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        transition: height 0.5s ease-in;
-        @include flex(column, space-around, center, none, none);
-        @include get-color(light2);
-        &:nth-child(2n) {
-          @include get-color(light1);
-        }
-        &:nth-child(3n) {
-          @include get-color(dark2);
-        }
-        > span {
-          text-align: center;
-          color: #fff;
-        }
-        > .img-container {
-          width: 100%;
-          height: 40%;
-          @include flex(none, center, center, none, none);
-          > img {
-            max-width: 50%;
-            max-height: 80%;
+      > .skills-container {
+        @include flex(row, none, none, none, none);
+        margin-top: calc(13% - #{$headerHeight});
+        margin-left: 10%;
+        > .skills-label {
+          > button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding: 0;
+            cursor: pointer;
           }
         }
       }
@@ -91,26 +62,35 @@
   }
 }
 
-@media all and (orientation: portrait) and (max-width: 600px) {
-  .index-page-container {
-    > .bottombar-wrapper {
-      > .bottombar-container {
-        @include flex(column, none, none, none, none);
-        > .bottombar {
-          width: 100%;
-          @include flex(row, center, center, none, wrap);
-          &:not(:first-child) {
-            margin-top: 16px;
+@media all and (orientation: portrait) {
+  .index-page-wrapper {
+    background-image: url("../images/index/bg-portrait.jpg");
+    > .index-page-container {
+      > .hero-block {
+        > .adpillar-container {
+          margin-top: 40%;
+        }
+        > .skills-container {
+          @include flex(column, none, none, none, none);
+          margin-top: 30%;
+          > .skills-label {
+            margin-top: 2%;
           }
-          > .img-container {
-            position: relative;
-            width: auto;
-            height: 50%;
-            > img {
-              max-width: none;
-              max-height: 100%;
-            }
-          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (orientation: landscape) and (max-width: 700px) {
+  .index-page-wrapper {
+    > .index-page-container {
+      > .hero-block {
+        > .adpillar-container {
+          margin-top: 20%;
+        }
+        > .skills-container {
+          margin-top: 10%;
         }
       }
     }
