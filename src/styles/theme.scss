@@ -66,6 +66,7 @@ $mobileFontStyles:
 
 // --- coloring as vars
 $colors: (
+  darkest: #000000,
   dark1: #05386b,
   dark2: #379683,
   light1: #5cdb95,
@@ -83,6 +84,21 @@ $colors: (
   }
 }
 
+@mixin get-color-yiq($background) {
+  $r: red($background);
+  $g: green($background);
+  $b: blue($background);
+  
+  $yiq: (($r*299) + ($g*587) + ($b*114))/1000;
+  
+  @if ($yiq >= 128) {
+    color: #000000;
+  }
+  @else {
+    color: #ffffff;
+  }
+}
+
 // --- coloring as classes
 @each $name, $hexCol in $colors {
   .text-color-#{$name} {
@@ -90,5 +106,6 @@ $colors: (
   }
   .background-color-#{$name} {
     background-color: $hexCol;
+    @include get-color-yiq($hexCol);
   }
 }

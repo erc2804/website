@@ -16,11 +16,31 @@ html, body {
   display: none !important;
 }
 
+.horizImgAlign {
+  width: 90%;
+  height: auto;
+}
+
+.vertiImgAlign {
+  width: auto;
+  height: 90%;
+}
+
+.horizIconAlign {
+  width: 60% !important;
+  height: auto;
+}
+
+.vertiIconAlign {
+  width: auto !important;
+  height: 60%;
+}
+
 .default-padding {
   padding: 0 10%;
 }
 
-@media all and (orientation: portrait) and (max-width: 600px) {
+@media all and (orientation: portrait) and (max-width: 700px) {
   .default-padding {
     padding: 0 16px;
   }
