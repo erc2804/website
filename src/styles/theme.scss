@@ -22,7 +22,7 @@ $fontStyles:
 "header-3" "Demi" 40px 150% 0.03em,
 "header-4" "Regular" 24px 150% 0.03em,
 "subheading-1" "Regular" 20px 100% 0.03em,
-"body-1" "Regular" 16px 100% 0.03em,
+"body-1" "Regular" 16px 160% 0.7px,
 "body-2" "Regular" 14px 100% 0.03em;
 
 $mobileFontStyles: 
@@ -31,7 +31,7 @@ $mobileFontStyles:
 "header-3" "Demi" 40px 150% 0.03em,
 "header-4" "Regular" 24px 150% 0.03em,
 "subheading-1" "Regular" 20px 100% 0.03em,
-"body-1" "Regular" 16px 100% 0.03em,
+"body-1" "Regular" 16px 160% 0.7px,
 "body-2" "Regular" 14px 100% 0.03em;
 
 @each $name, $font, $size, $lineHeight, $letterSpacing in $fontStyles {
