@@ -4,9 +4,12 @@
 .portfolio-page-wrapper {
   position: relative;
   width: 100%;
-  height: calc(100vh - #{$headerHeight});
+  min-height: calc(100vh - #{$headerHeight});
   padding-top: $headerHeight;
   > .header-text-container {
+    position: relative;
+    width: 100%;
+    text-align: left;
     margin-top: 40px;
   }
   > .boxes-wrapper {

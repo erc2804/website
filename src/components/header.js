@@ -12,7 +12,8 @@ class Header extends Component {
       wndw: {
         w: window.innerWidth,
         h: window.innerHeight
-      }
+      },
+      showHeaderShadow: false
     }
     this.toggleNavMenu = this.toggleNavMenu.bind(this);
   }
@@ -20,10 +21,12 @@ class Header extends Component {
   componentDidMount() {
     this.onResize();
     window.addEventListener("resize", this.onResize.bind(this));
+    window.addEventListener("scroll", this.onScroll.bind(this));
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.onResize.bind(this));
+    window.removeEventListener("scroll", this.onScroll.bind(this));
   }
 
   toggleNavMenu() {
@@ -31,6 +34,12 @@ class Header extends Component {
       navMenuOpen: !this.state.navMenuOpen
     });
   }
+
+  onScroll = () => {
+    this.setState({
+      showHeaderShadow: (document.documentElement.scrollTop > 10)
+    });
+  };
 
   onResize() {
     this.setState({
@@ -70,7 +79,7 @@ class Header extends Component {
       <header
         className={`${headerStyles.headerWrapper} ${
           this.props.mode === "dark" ? headerStyles.darkHeader : ""
-        } ${window.pageYOffset > 0 ? headerStyles.showShdw : ""} background-color-flatwhite`}
+        } ${window.pageYOffset > 0 ? headerStyles.headerShadow : ""} background-color-flatwhite`}
       >
         <div className={headerStyles.headerContainer}>
           <Link className={headerStyles.logoContainer} to="/">

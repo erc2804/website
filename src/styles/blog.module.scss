@@ -4,37 +4,125 @@
 .blog-page-wrapper {
   position: relative;
   width: 100%;
-  height: calc(100vh - #{$headerHeight});
+  min-height: calc(100vh - #{$headerHeight});
   padding-top: $headerHeight;
+  @include flex(column, flex-start, center, none, none);
   > .header-text-container {
+    position: relative;
+    width: 80%;
+    text-align: left;
     margin-top: 40px;
   }
-  > .current-blog-post-container {
+  > .blog-post-container {
+    position: relative;
+    width: 80%;
+    height: auto;
+    &:nth-child(n + 3) {
+      margin-top: 40px;
+    }
+    &:last-child {
+      margin-bottom: 120px;
+    }
+    > .blog-img-wrapper {
       position: relative;
       width: 100%;
-      height: auto;
+      height: 10vw;
+      overflow: hidden;
+      padding: 0;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      &:hover {
+        cursor: pointer;
+        > .blog-img-container {
+          animation: blog-img-anim 10s linear;
+        }
+        > .blog-img-overlay {
+          background-color: rgba(0, 0, 0, 0.33);
+        }
+        > .chevron-overlay {
+          transform: rotate(180deg);
+        }
+      }
       > .blog-img-container {
-          position: relative;
-          width: 100%;
-          height: 15vw;
-          background-color: #efefef;
-          > div {
-              position: absolute;
-              bottom: 8px;
-              left: 8px;
-              > span {
-                  margin-left: 8px;
-              }
-          }
-      }
-      > .blog-text-container {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        > .header-container {
-          margin-top: 30px;
+        height: 100%;
+        background-color: #efefef;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center center;
+      }
+      > .blog-img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.66);
+        transition: background-color 0.5s ease;
+      }
+      > .title-overlay {
+        position: absolute;
+        bottom: 40px;
+        left: 8px;
+        width: 100%;
+        text-align: left;
+      }
+      > .date-overlay {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        > svg,
+        > span {
+          color: #fff;
         }
-        > .text-container {
-          margin-top: 10px;
+        > span {
+          margin-left: 8px;
         }
       }
+      > .chevron-overlay {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-size: 20px;
+        border-radius: 50%;
+        transition: transform 0.5s ease;
+        > svg {
+          color: #fff;
+        }
+      }
+    }
+    > .blog-text-container {
+      width: 100%;
+      @include flex(column, none, center, none, none);
+      display: none;
+      &.post-expanded {
+        display: flex;
+      }
+      > .header-container {
+        width: 66%;
+        margin-top: 30px;
+        text-align: left;
+      }
+      > .text-container {
+        width: 66%;
+        margin-top: 10px;
+        text-align: justify;
+      }
+    }
+  }
+}
+
+@keyframes blog-img-anim {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
   }
 }
