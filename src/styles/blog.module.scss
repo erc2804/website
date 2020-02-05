@@ -11,7 +11,7 @@
     position: relative;
     width: 66%;
     text-align: left;
-    margin-top: 40px;
+    margin: 40px 0;
   }
   > .blog-post-container {
     position: relative;
@@ -128,7 +128,34 @@
       > .text-container {
         width: 100%;
         margin-top: 10px;
-        text-align: justify;
+        img {
+          margin: 1rem 0 0 0;
+          max-width: 100%;
+        }
+        figcaption {
+          margin: 0 0 2rem 0;
+          font-size: 14px;
+          @include get-color(dark2, true);
+        }
+        p {
+          margin: 0;
+        }
+        h2 {
+          margin: 6rem 0 0.5rem;
+          &:first-child {
+            margin-top: 2rem;
+          }
+        }
+        h3 {
+          font-size: 16px;
+          margin-bottom: 0.25rem;
+        }
+      }
+      > .divider {
+        width: 100%;
+        height: 1px;
+        @include get-color(dark2, false);
+        margin: 6rem 0 4rem 0;
       }
     }
   }

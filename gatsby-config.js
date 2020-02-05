@@ -1,4 +1,8 @@
 module.exports = {
+  siteMetadata: {
+		twitterHandle: '@swashata',
+		url: 'https://swas.io',
+	},
   plugins: [
     'gatsby-plugin-sass',
     `gatsby-plugin-react-helmet`,
@@ -11,5 +15,5 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
-  ]
+  ],
 }
