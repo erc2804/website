@@ -9,14 +9,30 @@
   @include flex(column, flex-start, center, none, none);
   > .header-text-container {
     position: relative;
-    width: 80%;
+    width: 66%;
     text-align: left;
     margin-top: 40px;
   }
   > .blog-post-container {
     position: relative;
-    width: 80%;
+    width: 66%;
     height: auto;
+    &.post-expanded {
+      > .blog-img-wrapper {
+        > .blog-img-overlay {
+          background-color: rgba(0, 0, 0, 0.33);
+        }
+        > .chevron-overlay {
+          transform: rotate(180deg);
+        }
+        > .title-overlay, > .date-overlay {
+          bottom: -50%;
+        }
+      }
+      > .blog-text-container {
+        display: flex;
+      }
+    }
     &:nth-child(n + 3) {
       margin-top: 40px;
     }
@@ -64,7 +80,7 @@
         height: 100%;
         border-radius: 6px;
         background-color: rgba(0, 0, 0, 0.66);
-        transition: background-color 0.5s ease;
+        transition: background-color .5s ease;
       }
       > .title-overlay {
         position: absolute;
@@ -72,11 +88,13 @@
         left: 8px;
         width: 100%;
         text-align: left;
+        transition: bottom .25s ease;
       }
       > .date-overlay {
         position: absolute;
         bottom: 8px;
         left: 8px;
+        transition: bottom .25s ease;
         > svg,
         > span {
           color: #fff;
@@ -101,16 +119,14 @@
       width: 100%;
       @include flex(column, none, center, none, none);
       display: none;
-      &.post-expanded {
-        display: flex;
-      }
       > .header-container {
-        width: 66%;
+        width: 100%;
+        @include flex(row, space-between, flex-end, none, none);
         margin-top: 30px;
         text-align: left;
       }
       > .text-container {
-        width: 66%;
+        width: 100%;
         margin-top: 10px;
         text-align: justify;
       }
