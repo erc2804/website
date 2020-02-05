@@ -169,3 +169,29 @@
     transform: scale(1.2);
   }
 }
+
+@media all and (orientation: landscape) and (max-height: 640px) {
+  .blog-page-wrapper {
+    > .header-text-container, > .blog-post-container {
+      width: 80%;
+    }
+    > .blog-post-container {
+      > .blog-img-wrapper {
+        height: 15vw;
+      }
+    }
+  }
+}
+
+@media all and (orientation: portrait) and (max-height: 700px) {
+  .blog-page-wrapper {
+    > .header-text-container, > .blog-post-container {
+      width: 100%;
+    }
+    > .blog-post-container {
+      > .blog-img-wrapper {
+        height: 30vw;
+      }
+    }
+  }
+}

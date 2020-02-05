@@ -18,38 +18,48 @@ class Header extends Component {
     this.toggleNavMenu = this.toggleNavMenu.bind(this);
   }
 
+  _isMounted = false;
+
   componentDidMount() {
+    this._isMounted = true;
     this.onResize();
     window.addEventListener("resize", this.onResize.bind(this));
     window.addEventListener("scroll", this.onScroll.bind(this));
   }
 
   componentWillUnmount() {
+    this._isMounted = false;
     window.removeEventListener("resize", this.onResize.bind(this));
     window.removeEventListener("scroll", this.onScroll.bind(this));
   }
 
   toggleNavMenu() {
-    this.setState({
-      navMenuOpen: !this.state.navMenuOpen
-    });
+    if(this._isMounted) {
+      this.setState({
+        navMenuOpen: !this.state.navMenuOpen
+      });
+    }
   }
 
   onScroll = () => {
-    this.setState({
-      showHeaderShadow: (document.documentElement.scrollTop > 10)
-    });
+    if(this._isMounted) {
+      this.setState({
+        showHeaderShadow: (document.documentElement.scrollTop > 10)
+      });
+    }
   };
 
   onResize() {
-    this.setState({
-      orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
-      navMenuOpen: false,
-      wndw: {
-        w: window.innerWidth,
-        h: window.innerHeight
-      }
-    });
+    if(this._isMounted) {
+      this.setState({
+        orientation: window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape",
+        navMenuOpen: false,
+        wndw: {
+          w: window.innerWidth,
+          h: window.innerHeight
+        }
+      });
+    }
   }
 
   render() {

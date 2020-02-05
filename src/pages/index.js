@@ -19,6 +19,7 @@ class IndexPage extends Component {
     }
   }
 
+  _isMounted = false;
   adpillarIntval = null
   clearAdpillarIntval = null
   initialAdpillarTimeout = null
@@ -27,6 +28,7 @@ class IndexPage extends Component {
   adpillarWordIdx = 0
 
   componentDidMount() {
+    this._isMounted = true
     this.initialAdpillarTimeout = setTimeout(() => {
       this.startAdpillarAnim(this.adpillarWordIdx)
     }, 300)
@@ -35,6 +37,7 @@ class IndexPage extends Component {
   }
 
   componentWillUnmount() {
+    this._isMounted = false
     clearInterval(this.adpillarIntval)
     clearInterval(this.clearAdpillarIntval)
     clearTimeout(this.initialAdpillarTimeout)
@@ -44,56 +47,64 @@ class IndexPage extends Component {
   }
 
   startAdpillarAnim() {
-    let finalAdpillarIdx = 0
-    this.adpillarIntval = setInterval(() => {
-      this.setState({
-        currentAdpillarText:
-          this.state.currentAdpillarText +
-          this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx],
-      })
-      finalAdpillarIdx++
-      if (
-        !this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx]
-      ) {
-        clearInterval(this.adpillarIntval)
-        this.nextAdpillarWord()
-      }
-    }, 150)
+    if(this._isMounted) {
+      let finalAdpillarIdx = 0
+      this.adpillarIntval = setInterval(() => {
+        this.setState({
+          currentAdpillarText:
+            this.state.currentAdpillarText +
+            this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx],
+        })
+        finalAdpillarIdx++
+        if (
+          !this.state.finalAdpillarTexts[this.adpillarWordIdx][finalAdpillarIdx]
+        ) {
+          clearInterval(this.adpillarIntval)
+          this.nextAdpillarWord()
+        }
+      }, 150)
+    }
   }
 
   nextAdpillarWord() {
-    this.adpillarWordIdx++
-    if (this.state.finalAdpillarTexts[this.adpillarWordIdx]) {
-      this.nextAdpillarWordTimeout = setTimeout(() => {
-        this.clearAdpillar()
-      }, 2000)
+    if(this._isMounted) {
+      this.adpillarWordIdx++
+      if (this.state.finalAdpillarTexts[this.adpillarWordIdx]) {
+        this.nextAdpillarWordTimeout = setTimeout(() => {
+          this.clearAdpillar()
+        }, 2000)
+      }
     }
   }
 
   clearAdpillar() {
-    this.clearAdpillarIntval = setInterval(() => {
-      this.setState({
-        currentAdpillarText: this.state.currentAdpillarText.slice(0, -1),
-      })
-      if (this.state.currentAdpillarText.length === 0) {
-        clearInterval(this.clearAdpillarIntval)
-        this.nextAdpillarTimeout = setTimeout(() => {
-          this.startAdpillarAnim(this.adpillarWordIdx)
-        }, 500)
-      }
-    }, 50)
+    if(this._isMounted) {
+      this.clearAdpillarIntval = setInterval(() => {
+        this.setState({
+          currentAdpillarText: this.state.currentAdpillarText.slice(0, -1),
+        })
+        if (this.state.currentAdpillarText.length === 0) {
+          clearInterval(this.clearAdpillarIntval)
+          this.nextAdpillarTimeout = setTimeout(() => {
+            this.startAdpillarAnim(this.adpillarWordIdx)
+          }, 500)
+        }
+      }, 50)
+    }
   }
 
   onResize() {
-    this.setState({
-      orientation: window.matchMedia("(orientation: portrait)").matches
-        ? "portrait"
-        : "landscape",
-      wndw: {
-        w: window.innerWidth,
-        h: window.innerHeight,
-      },
-    })
+    if(this._isMounted) {
+      this.setState({
+        orientation: window.matchMedia("(orientation: portrait)").matches
+          ? "portrait"
+          : "landscape",
+        wndw: {
+          w: window.innerWidth,
+          h: window.innerHeight,
+        },
+      })
+    }
   }
 
   render() {
