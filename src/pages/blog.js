@@ -3,22 +3,63 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import queryString from 'query-string'
 // --- fontawesome icons
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 // --- styles
 import "../styles/globals.scss"
 import blogStyles from "../styles/blog.module.scss"
+import { createRef } from "react"
 
 library.add(faCalendarAlt, faChevronDown)
 class BlogPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      expandedBlogPosts: [1],
+      expandedBlogPosts: [],
     }
     console.log("props: ", props)
     this.toggleBlogPostVisibility = this.toggleBlogPostVisibility.bind(this)
+  }
+
+  blogPosts = [];
+
+  componentDidMount() {
+    this.setBlogPosts();
+    this.setStarterBlogId();
+  }
+
+  setBlogPosts() {
+    this.props.data.allMarkdownRemark.edges.forEach((edge) => {
+      this.blogPosts.push({
+        id: edge.node.frontmatter.id,
+        date: edge.node.frontmatter.date,
+        title: edge.node.frontmatter.title,
+        imageUrl: edge.node.frontmatter.imageUrl,
+        horizontalImgPosInPercent: edge.node.frontmatter.horizontalImgPosInPercent,
+        htmlContent: edge.node.html,
+        ref: createRef()
+      });
+    });
+  }
+  
+  setStarterBlogId() {
+    const urlParams = queryString.parse(this.props.location.search);
+    if(urlParams && urlParams.blogId) {
+      const blogId = parseInt(urlParams.blogId);
+      this.setState({ expandedBlogPosts: [blogId] })
+      if(blogId > 0) {
+        const foundBlogPostStarter = this.blogPosts.filter(blogPost => blogPost.id === blogId);
+        if(foundBlogPostStarter[0]) {
+          setTimeout(() => this.scrollToRef(foundBlogPostStarter[0].ref), 100);
+        }
+      }
+    } else {
+      this.setState({
+        expandedBlogPosts: [1]
+      })
+    }
   }
 
   toggleBlogPostVisibility(postId) {
@@ -38,26 +79,23 @@ class BlogPage extends Component {
     }
   }
 
-  render() {
-    let blogPosts = [];
-    this.props.data.allMarkdownRemark.edges.forEach((edge) => {
-      blogPosts.push({
-        id: edge.node.frontmatter.id,
-        date: edge.node.frontmatter.date,
-        title: edge.node.frontmatter.title,
-        imageUrl: edge.node.frontmatter.imageUrl,
-        horizontalImgPosInPercent: edge.node.frontmatter.horizontalImgPosInPercent,
-        htmlContent: edge.node.html
+  scrollToRef(ref) {
+    if(ref.current !== null) {
+      ref.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
       });
-    });
+    }
+  }
 
+  render() {
     return (
       <Layout title="Blog">
         <div className={`${blogStyles.blogPageWrapper} default-padding`}>
           <div className={`${blogStyles.headerTextContainer} font-header-4`}>
             Blog
           </div>
-          {blogPosts.map((blogPost, i) => (
+          {this.blogPosts.map((blogPost, i) => (
             <div
               className={`${blogStyles.blogPostContainer} ${
                 this.state.expandedBlogPosts.length > 0 &&
@@ -66,6 +104,7 @@ class BlogPage extends Component {
                   : ""
               }`}
               key={i}
+              ref={blogPost.ref}
             >
               <button
                 className={blogStyles.blogImgWrapper}
