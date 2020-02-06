@@ -18,23 +18,23 @@ $fonts: "AvenirNext-Bold" "Bold", "AvenirNext-Demi" "Demi",
 // --- font styles as classes
 $fontStyles: 
 "header-1" "Regular" 96px 100% 2px,
-"header-2" "Regular" 60px 100% 1.5px,
-"header-3" "Demi" 40px 150% 0.03em,
-"header-4" "Regular" 24px 150% 0.03em,
+"header-2" "Regular" 60px 120% 1.5px,
+"header-3" "Demi" 40px 100% 0.03em,
+"header-4" "Regular" 24px 100% 0.03em,
 "header-4_5" "Bold" 24px 150% 0.03em,
-"subheading-1" "Regular" 20px 100% 0.03em,
+"subheading-1" "Regular" 20px 150% 0.03em,
 "body-1" "Regular" 16px 160% 0.7px,
-"body-2" "Regular" 14px 100% 0.03em;
+"body-2" "Regular" 14px 150% 0.03em;
 
 $mobileFontStyles: 
 "header-1" "Regular" 48px 100% 2px,
-"header-2" "Regular" 30px 100% 1.5px,
-"header-3" "Demi" 40px 150% 0.03em,
-"header-4" "Regular" 18px 150% 0.03em,
+"header-2" "Regular" 30px 120% 1.5px,
+"header-3" "Demi" 40px 100% 0.03em,
+"header-4" "Regular" 18px 100% 0.03em,
 "header-4_5" "Bold" 18px 150% 0.03em,
-"subheading-1" "Regular" 20px 100% 0.03em,
+"subheading-1" "Regular" 20px 150% 0.03em,
 "body-1" "Regular" 16px 160% 0.7px,
-"body-2" "Regular" 14px 100% 0.03em;
+"body-2" "Regular" 14px 150% 0.03em;
 
 @each $name, $font, $size, $lineHeight, $letterSpacing in $fontStyles {
   .font-#{$name} {

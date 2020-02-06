@@ -57,7 +57,7 @@ class BlogPage extends Component {
       }
     } else {
       this.setState({
-        expandedBlogPosts: [1]
+        expandedBlogPosts: [this.blogPosts[0].id]
       })
     }
   }
@@ -150,7 +150,7 @@ class BlogPage extends Component {
 export default BlogPage
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___id] }) {
       edges {
         node {
           frontmatter {

@@ -1,9 +1,9 @@
 ---
-id: 1
-date: "2020-01-19"
-title: "How to start a blog with GatsbyJS"
-imageUrl: "https://images.unsplash.com/photo-1580853562095-ea5edfb7b03d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-horizontalImgPosInPercent: 55
+id: 1580947200
+date: "2020-02-06"
+title: "5 Fundamental Design Principles"
+imageUrl: "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+horizontalImgPosInPercent: 45
 ---
 
 ## Space

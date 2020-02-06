@@ -1,0 +1,142 @@
+@import "utilities.scss";
+@import "theme.scss";
+
+.aboutme-page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - #{$headerHeight});
+  padding-top: $headerHeight;
+  @include flex(column, flex-start, center, none, none);
+  > .header-text-container {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin-top: 40px;
+  }
+  > .info-wrapper {
+    width: 100%;
+    margin-top: 40px;
+    @include flex(row, space-between, flex-end, none, none);
+    > .img-container {
+      position: relative;
+      width: 23vw;
+      height: 23vw;
+      border-radius: 50%;
+      background-image: url("../images/about-me/ercancicek.jpg");
+      background-repeat: no-repeat;
+      background-position: 40% center;
+      background-size: cover;
+      > .green-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(92, 219, 149, .15);
+      }
+    }
+    > .description-container {
+      width: calc(90% - 23vw);
+      margin-bottom: 40px;
+      @include flex(column, space-between, none, none, none);
+      > h3 {
+        width: 100%;
+      }
+      > span {
+        width: 100%;
+        margin-top: 40px;
+      }
+    }
+  }
+  > .divider {
+    width: 100%;
+    height: 1px;
+    @include get-color(dark2, false);
+    margin: 6rem 0 4rem 0;
+  }
+  > .boxes-wrapper {
+    width: 100%;
+    height: auto;
+    margin-bottom: 120px;
+    @include flex(row, space-between, flex-start, none, wrap);
+    > .box {
+      position: relative;
+      width: 30%;
+      height: 23vw;
+      &:nth-child(n + 4) {
+        margin-top: 3.9vw;
+      }
+      border-radius: 6px;
+      cursor: pointer;
+      overflow: hidden;
+      @include flex(column, center, center, none, none);
+      > svg{
+        transition: transform .25s ease;
+      }
+      > span {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 8px;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        text-align: center;
+        transition: transform .25s ease;
+        transform: translateY(110%);
+      }
+      &:hover {
+        > svg {
+          transform: scale(0.8);
+        }
+        > span {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+@media all and (orientation: landscape) and (max-width: 1152px) {
+  .aboutme-page-wrapper {
+    > .info-wrapper {
+      @include flex(none, none, flex-start, none, none);
+    }
+    > .boxes-wrapper {
+      > .box {
+        width: 40%;
+        height: 35vw;
+        margin-top: 3.9vw;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 700px) {
+  .aboutme-page-wrapper {
+    > .info-wrapper {
+      @include flex(column, none, flex-start, none, none);
+      > .description-container {
+        width: 100%;
+        margin-top: 40px;
+      }
+    }
+    > .boxes-wrapper {
+      > .box {
+        width: 100%;
+        height: 95vw;
+        margin-top: 16px;
+        > svg, > img {
+          transform: scale(0.8);
+        }
+        > span {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+@media all and (orientation: portrait) {
+
+}
