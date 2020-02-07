@@ -116,7 +116,7 @@ class Header extends Component {
             ></path>
             <path
               fill="#fff"
-              stroke="#46237a"
+              stroke="#05386B"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="81"
