@@ -97,11 +97,16 @@
   }
 }
 
-@media all and (orientation: landscape) and (max-width: 1152px) {
+@media all and (orientation: landscape) and (max-width: 1281px) {
   .aboutme-page-wrapper {
     > .info-wrapper {
       @include flex(none, none, flex-start, none, none);
     }
+  }
+}
+
+@media all and (orientation: landscape) and (max-width: 1152px) {
+  .aboutme-page-wrapper {
     > .boxes-wrapper {
       > .box {
         width: 40%;
