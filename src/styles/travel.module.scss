@@ -1,19 +1,175 @@
 @import "utilities.scss";
 @import "theme.scss";
 
-
-@media all and (orientation: landscape) and (max-width: 1281px) {
-
+.travel-page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - #{$headerHeight});
+  padding-top: $headerHeight;
+  @include flex(column, flex-start, center, none, none);
+  > .header-text-container {
+    position: relative;
+    width: 66%;
+    text-align: left;
+    margin: 40px 0;
+  }
+  > .travel-post-container {
+    position: relative;
+    width: 66%;
+    height: auto;
+    &.post-expanded {
+      > .travel-img-wrapper {
+        > .travel-img-overlay {
+          background-color: rgba(0, 0, 0, 0.33);
+        }
+        > .chevron-overlay {
+          transform: rotate(180deg);
+        }
+        > .title-overlay, > .date-overlay {
+          bottom: -50%;
+        }
+      }
+      > .travel-content-container {
+        display: flex;
+      }
+    }
+    &:nth-child(n + 3) {
+      margin-top: 40px;
+    }
+    &:last-child {
+      margin-bottom: 120px;
+    }
+    > .travel-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 10vw;
+      overflow: hidden;
+      padding: 0;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      &:hover {
+        cursor: pointer;
+        > .travel-img-container {
+          animation: blog-img-anim 10s linear;
+        }
+        > .travel-img-overlay {
+          background-color: rgba(0, 0, 0, 0.33);
+        }
+        > .chevron-overlay {
+          transform: rotate(180deg);
+        }
+      }
+      > .travel-img-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #efefef;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center center;
+      }
+      > .travel-img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.66);
+        transition: background-color 0.5s ease;
+      }
+      > .title-overlay {
+        position: absolute;
+        bottom: 40px;
+        left: 8px;
+        width: 100%;
+        text-align: left;
+        transition: bottom 0.25s ease;
+      }
+      > .date-overlay {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        transition: bottom 0.25s ease;
+        > svg,
+        > span {
+          color: #fff;
+        }
+        > span {
+          margin-left: 8px;
+        }
+      }
+      > .chevron-overlay {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-size: 20px;
+        border-radius: 50%;
+        transition: transform 0.5s ease;
+        > svg {
+          color: #fff;
+        }
+      }
+    }
+    > .travel-content-container {
+        width: 100%;
+        @include flex(column, none, center, none, none);
+        display: none;
+        > .header-container {
+          width: 100%;
+          @include flex(row, space-between, flex-end, none, none);
+          margin-top: 30px;
+          text-align: left;
+        }
+        > .gallery-container {
+          width: 100%;
+          margin-top: 10px;
+        }
+        > .divider {
+          width: 100%;
+          height: 1px;
+          @include get-color(dark2, false);
+          margin: 6rem 0 4rem 0;
+        }
+      }
+  }
 }
 
-@media all and (orientation: landscape) and (max-width: 1152px) {
-
-}
-
-@media all and (max-width: 700px) {
-
-}
-
-@media all and (orientation: portrait) {
-
-}
+@keyframes blog-img-anim {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+  
+  @media all and (orientation: landscape) and (max-height: 640px) {
+    .travel-page-wrapper {
+      > .header-text-container, > .travel-post-container {
+        width: 80%;
+      }
+      > .travel-post-container {
+        > .btravellog-img-wrapper {
+          height: 15vw;
+        }
+      }
+    }
+  }
+  
+  @media all and (orientation: portrait) and (max-height: 700px) {
+    .travel-page-wrapper {
+      > .header-text-container, > .travel-post-container {
+        width: 100%;
+      }
+      > .travel-post-container {
+        > .travel-img-wrapper {
+          height: 30vw;
+        }
+      }
+    }
+  }
