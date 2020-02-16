@@ -32,7 +32,7 @@ class TravelPage extends Component {
       id: "japan-1",
       country: "Japan",
       city: "Tokyo",
-      date: "January 2020",
+      date: "November 2018",
       images: [],
       videos: [japVid1, japVid2, japVid3],
       preview: {
@@ -44,7 +44,7 @@ class TravelPage extends Component {
       id: "morocco-1",
       country: "Morocco",
       city: "Marrakech",
-      date: "March 2019",
+      date: "August 2018",
       videos: [],
       images: [],
       preview: {
@@ -56,7 +56,7 @@ class TravelPage extends Component {
       id: "czechia-1",
       country: "Czechia",
       city: "Prague",
-      date: "January 2019",
+      date: "June 2018",
       videos: [],
       images: [],
       preview: {
@@ -68,7 +68,7 @@ class TravelPage extends Component {
       id: "hungary-1",
       country: "Hungary",
       city: "Budapest",
-      date: "January 2018",
+      date: "September 2018",
       videos: [],
       images: [],
       preview: {
@@ -80,7 +80,7 @@ class TravelPage extends Component {
       id: "spain-1",
       country: "Spain",
       city: "Seville",
-      date: "January 2017",
+      date: "August 2018",
       videos: [],
       images: [],
       preview: {
