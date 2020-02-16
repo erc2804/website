@@ -3,7 +3,7 @@ id: 1580860800
 date: "2020-02-05"
 title: "5 Fundamental Design Principles"
 imageUrl: "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-horizontalImgPosInPercent: 45
+verticalImgPosInPercent: 45
 ---
 
 ## Space

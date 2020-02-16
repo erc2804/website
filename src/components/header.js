@@ -80,10 +80,6 @@ class Header extends Component {
         label: "About Me",
         path: "/about-me",
       },
-      {
-        label: "Dev Tools",
-        path: "/dev-tools",
-      },
     ]
     return (
       <header

@@ -11,6 +11,10 @@ import "react-image-gallery/styles/scss/image-gallery.scss";
 // --- fontawesome icons
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+// --- videos
+import japVid1 from "../images/travel/japan/videos/video_1.mp4"
+import japVid2 from "../images/travel/japan/videos/video_2.mp4"
+import japVid3 from "../images/travel/japan/videos/video_3.mp4"
 
 library.add(faCalendarAlt, faChevronDown)
 class TravelPage extends Component {
@@ -29,35 +33,60 @@ class TravelPage extends Component {
       country: "Japan",
       city: "Tokyo",
       date: "January 2020",
-      images: []
+      images: [],
+      videos: [japVid1, japVid2, japVid3],
+      preview: {
+        imageIdx: 1,
+        verticalImgPosInPercent: 50
+      }
     },
     {
       id: "morocco-1",
       country: "Morocco",
       city: "Marrakech",
       date: "March 2019",
-      images: []
+      videos: [],
+      images: [],
+      preview: {
+        imageIdx: 0,
+        verticalImgPosInPercent: 40
+      }
     },
     {
       id: "czechia-1",
       country: "Czechia",
       city: "Prague",
       date: "January 2019",
-      images: []
+      videos: [],
+      images: [],
+      preview: {
+        imageIdx: 0,
+        verticalImgPosInPercent: 65
+      }
     },
     {
       id: "hungary-1",
       country: "Hungary",
       city: "Budapest",
       date: "January 2018",
-      images: []
+      videos: [],
+      images: [],
+      preview: {
+        imageIdx: 0,
+        verticalImgPosInPercent: 40
+      }
     },
     {
       id: "spain-1",
       country: "Spain",
       city: "Seville",
       date: "January 2017",
-      images: []
+      videos: [],
+      images: [],
+      preview: {
+        imageIdx: 1,
+        verticalImgPosInPercent: 30
+      }
     }
   ];
 
@@ -137,7 +166,7 @@ class TravelPage extends Component {
               >
                 <div
                   className={travelStyles.travelImgContainer}
-                  style={{ backgroundImage: "url(" + travelRes.imageUrl + ")", backgroundPositionY: travelRes.horizontalImgPosInPercent + "%" }}
+                  style={{ backgroundImage: "url(" + travelRes.images[travelRes.preview.imageIdx].original + ")", backgroundPositionY: travelRes.preview.verticalImgPosInPercent + "%" }}
                 ></div>
                 <div className={travelStyles.travelImgOverlay}></div>
                 <div

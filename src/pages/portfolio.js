@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // --- fontawesome icons
 import { fab } from '@fortawesome/free-brands-svg-icons'
 // --- portfolio thumbnails (as img)
+import ivImg from '../images/portfolio/infraview_screenshot.png'
 import jonaImg from '../images/portfolio/jona_screenshot.png'
 import dcImg from '../images/portfolio/digitChallenge_screenshot.png'
 import melImg from '../images/portfolio/mel_screenshot.png'
@@ -30,8 +31,8 @@ class PortfolioPage extends Component {
       label: "Website, infraView",
       url: "https://www.infraview.net",
       thumbnail: {
-        type: "icon",
-        src: "fab,dev",
+        type: "image",
+        src: ivImg,
         alignment: "vertical"
       },
       theme: "dark2"

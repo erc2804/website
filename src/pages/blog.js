@@ -37,7 +37,7 @@ class BlogPage extends Component {
         date: edge.node.frontmatter.date,
         title: edge.node.frontmatter.title,
         imageUrl: edge.node.frontmatter.imageUrl,
-        horizontalImgPosInPercent: edge.node.frontmatter.horizontalImgPosInPercent,
+        verticalImgPosInPercent: edge.node.frontmatter.verticalImgPosInPercent,
         htmlContent: edge.node.html,
         ref: createRef()
       });
@@ -112,7 +112,7 @@ class BlogPage extends Component {
               >
                 <div
                   className={blogStyles.blogImgContainer}
-                  style={{ backgroundImage: "url(" + blogPost.imageUrl + ")", backgroundPositionY: blogPost.horizontalImgPosInPercent + "%" }}
+                  style={{ backgroundImage: "url(" + blogPost.imageUrl + ")", backgroundPositionY: blogPost.verticalImgPosInPercent + "%" }}
                 ></div>
                 <div className={blogStyles.blogImgOverlay}></div>
                 <div
@@ -158,7 +158,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             imageUrl
-            horizontalImgPosInPercent
+            verticalImgPosInPercent
           }
           html
         }
