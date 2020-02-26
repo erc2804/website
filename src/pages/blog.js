@@ -19,7 +19,6 @@ class BlogPage extends Component {
     this.state = {
       expandedBlogPosts: [],
     }
-    console.log("props: ", props)
     this.toggleBlogPostVisibility = this.toggleBlogPostVisibility.bind(this)
   }
 

@@ -23,7 +23,6 @@ class TravelPage extends Component {
     this.state = {
       expandedTravelPosts: [],
     }
-    console.log("props: ", props)
   }
 
   countries = ["japan", "morocco", "czechia", "hungary", "spain"];
@@ -92,7 +91,6 @@ class TravelPage extends Component {
 
   componentWillMount() {
     this.setTravelResources()
-    console.log("this.travelResources: ", this.travelResources)
   }
 
   setTravelResources() {
