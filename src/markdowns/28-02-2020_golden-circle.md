@@ -8,7 +8,7 @@ verticalImgPosInPercent: 55
 <br />
 <br />
 <br />
-This quote by business consultant [Simon Sinek](https://simonsinek.com/) might sound a bit weird at first, as it does not make sense perfectly from a structural perspective.<br />
+This quote by business consultant <a href="https://simonsinek.com/">Simon Sinek</a> might sound a bit weird at first, as it does not make sense perfectly from a structural perspective.<br />
 Let me explain a bit more as diving deeper into this will pay off in many ways for people who are building their own business or planning to do so.
 
 ## The Golden Circle
