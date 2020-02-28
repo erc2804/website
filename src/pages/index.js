@@ -7,14 +7,12 @@ class IndexPage extends Component {
   constructor() {
     super()
     this.state = {
-      orientation: window.matchMedia("(orientation: portrait)").matches
-        ? "portrait"
-        : "landscape",
+      orientation: "",
       currentAdpillarText: "",
       finalAdpillarTexts: ["Designer", "Developer"],
       wndw: {
-        w: window.innerWidth,
-        h: window.innerHeight,
+        w: 0,
+        h: 0,
       },
     }
   }

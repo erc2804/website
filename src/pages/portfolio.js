@@ -45,34 +45,36 @@ class PortfolioPage extends Component {
         alignment: "vertical"
       },
       theme: "light1"
-    }, {
-      label: "digitChallenge, Procter & Gamble",
-      url: "https://google.de",
-      thumbnail: {
-        type: "image",
-        src: dcImg,
-        alignment: "vertical"
-      },
-      theme: "lightest"
-    }, {
-      label: "playAssess, cut-e (an AON company)",
-      url: "https://google.de",
-      thumbnail: {
-        type: "image",
-        src: paImg,
-        alignment: "vertical"
-      },
-      theme: "light2"
-    }, {
-      label: "custom mobile menu, tech demo",
-      url: "https://google.de",
-      thumbnail: {
-        type: "image",
-        src: melImg,
-        alignment: "vertical"
-      },
-      theme: "lightest"
-    }];
+    }, 
+    // {
+    //   label: "digitChallenge, Procter & Gamble",
+    //   url: "https://google.de",
+    //   thumbnail: {
+    //     type: "image",
+    //     src: dcImg,
+    //     alignment: "vertical"
+    //   },
+    //   theme: "lightest"
+    // }, {
+    //   label: "playAssess, cut-e (an AON company)",
+    //   url: "https://google.de",
+    //   thumbnail: {
+    //     type: "image",
+    //     src: paImg,
+    //     alignment: "vertical"
+    //   },
+    //   theme: "light2"
+    // }, {
+    //   label: "custom mobile menu, tech demo",
+    //   url: "https://google.de",
+    //   thumbnail: {
+    //     type: "image",
+    //     src: melImg,
+    //     alignment: "vertical"
+    //   },
+    //   theme: "lightest"
+    // }
+  ];
 
     return (
       <Layout title="Portfolio">

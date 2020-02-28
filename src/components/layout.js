@@ -9,11 +9,14 @@ const Layout = props => {
   return (
     <div className={layoutStyles.masterWrapper}>
       <Helmet>
-        <title>{props.title} - ercancicek.de</title>
+        <title>{props.title} - ercancicek.com</title>
         <meta charset="utf-8" />
+        <meta name="keywords" lang="en" content="ercan cicek, ux, designer, developer, webdesigner, frontend-developer, mainz, mobile app developer" />
         <meta name="keywords" lang="de" content="ercan cicek, ux, designer, entwickler, developer, webdesigner, webentwickler, frontend-developer, mainz, mobile app developer" />
+        <meta name="description" lang="en" content="Ercan Cicek - UX-Developer, UX-Designer, Web-App-Developer, Webdesigner in Mainz, Germany" />
         <meta name="description" lang="de" content="Ercan Cicek - UX-Developer, UX-Designer, Web-App-Developer, Webentwickler, Webdesigner in Mainz" />
         <meta name="author" content="Ercan Cicek" />
+        <meta name="page-topic" lang="en" content="Service, Person" />
         <meta name="page-topic" lang="de" content="Dienstleistung, Person" />
         <meta name="robots" content="index,follow" />
         <meta name="revisit-after" content="30 days" />

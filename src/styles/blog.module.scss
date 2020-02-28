@@ -86,7 +86,8 @@
         position: absolute;
         bottom: 40px;
         left: 8px;
-        width: 100%;
+        width: calc(100% - 16px);
+        line-height: 125%;
         text-align: left;
         transition: bottom .25s ease;
       }

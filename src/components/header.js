@@ -7,13 +7,11 @@ class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      orientation: window.matchMedia("(orientation: portrait)").matches
-        ? "portrait"
-        : "landscape",
+      orientation: "",
       navMenuOpen: false,
       wndw: {
-        w: window.innerWidth,
-        h: window.innerHeight,
+        w: 0,
+        h: 0,
       },
       showHeaderShadow: false,
     }
@@ -90,7 +88,7 @@ class Header extends Component {
         className={`${headerStyles.headerWrapper} ${
           this.props.mode === "dark" ? headerStyles.darkHeader : ""
         } ${
-          window.pageYOffset > 0 ? headerStyles.headerShadow : ""
+           this._isMounted && window.pageYOffset > 0 ? headerStyles.headerShadow : ""
         } ${
             this.state.navMenuOpen ? headerStyles.navMenuVis : ""
         } background-color-flatwhite`}
