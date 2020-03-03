@@ -17,7 +17,7 @@ Let me explain a bit more as diving deeper into this will pay off in many ways f
 
 <figcaption>A concise visual regarding the Golden Circle <a href="https://www.linkedin.com/pulse/concept-golden-circle-by-simon-sinek-babak-mohammadi/">Source</a></figcaption>
 
-The Golden Circle is the visual of Sinek's 'Why, How, What'-model. Here is a short wrap up of how Sinek describes these three questions from a organization's point of view:<br /><br />
+The Golden Circle is the visual of Sinek's 'Why, How, What'-model. Here is a short wrap up of how Sinek describes these three questions from an organization's point of view:<br /><br />
 
 ### What?
 

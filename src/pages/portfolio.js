@@ -46,6 +46,16 @@ class PortfolioPage extends Component {
       },
       theme: "light1"
     }, 
+    {
+      label: "custom mobile menu, tech demo",
+      url: "https://ercancicek.com/mel-menu.html",
+      thumbnail: {
+        type: "image",
+        src: melImg,
+        alignment: "vertical"
+      },
+      theme: "lightest"
+    }
     // {
     //   label: "digitChallenge, Procter & Gamble",
     //   url: "https://google.de",
@@ -64,16 +74,7 @@ class PortfolioPage extends Component {
     //     alignment: "vertical"
     //   },
     //   theme: "light2"
-    // }, {
-    //   label: "custom mobile menu, tech demo",
-    //   url: "https://google.de",
-    //   thumbnail: {
-    //     type: "image",
-    //     src: melImg,
-    //     alignment: "vertical"
-    //   },
-    //   theme: "lightest"
-    // }
+    // }, 
   ];
 
     return (

@@ -124,6 +124,9 @@
           @include flex(row, space-between, flex-end, none, none);
           margin-top: 30px;
           text-align: left;
+          > span:first-child {
+            padding-right: 16px;
+          }
         }
         > .gallery-container {
           width: 100%;
@@ -168,7 +171,7 @@
       }
       > .travel-post-container {
         > .travel-img-wrapper {
-          height: 30vw;
+          height: 45vw;
         }
       }
     }
