@@ -47,7 +47,12 @@ class AboutmePage extends Component {
     ]
 
     return (
-      <Layout title="About Me">
+      <Layout 
+        title="About Me"
+        descriptionEn="Ercan Cicek is a UX Designer and UX Developer based in Mainz with more than four years of work experience
+        in conceptualizing and implementing web applications in the frontend."
+        descriptionDe="Ercan Cicek ist ein UX Designer und UX Entwickler aus Mainz mit mehr als vier Jahren Erfahrung in der Konzeption und Entwicklung von Webanwendungen im Frontend."
+      >
         <div
           className={`${aboutmeStyles.aboutmePageWrapper} default-padding`}
         >

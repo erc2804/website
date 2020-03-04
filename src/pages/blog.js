@@ -89,7 +89,11 @@ class BlogPage extends Component {
 
   render() {
     return (
-      <Layout title="Blog">
+      <Layout 
+        title="Blog"
+        descriptionEn="The Blog of Ercan Cicek includes articles regarding Psychology, Design and Technology."
+        descriptionDe="Der Blog von Ercan Cicek umfasst Artikel von mir zu Psychologie, Design und Technologie."
+      >
         <div className={`${blogStyles.blogPageWrapper} default-padding`}>
           <div className={`${blogStyles.headerTextContainer} font-header-4`}>
             Blog

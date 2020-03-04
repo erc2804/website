@@ -78,7 +78,11 @@ class PortfolioPage extends Component {
   ];
 
     return (
-      <Layout title="Portfolio">
+      <Layout 
+        title="Portfolio"
+        descriptionEn="The portfolio page of Ercan Cicek comprises my most important frontend web projects of the last years."
+        descriptionDe="Die Portfolio Seite von Ercan Cicek umfasst meine wichtigsten Frontend Webprojekte der letzten Jahre."
+      >
         <div className={`${portfolioStyles.portfolioPageWrapper} default-padding`}>
           <div className={`${portfolioStyles.headerTextContainer} font-header-4`}>
             Portfolio

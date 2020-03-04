@@ -143,7 +143,11 @@ class TravelPage extends Component {
 
   render() {
     return (
-      <Layout title="Travel">
+      <Layout 
+        title="Travel"
+        descriptionEn="The travel page of Ercan Cicek comprises photos of my previous travels."
+        descriptionDe="Die Travel Seite von Ercan Cicek umfasst Fotos meiner letzten Reisen."
+      >
         <div className={`${travelStyles.travelPageWrapper} default-padding`}>
           <div className={`${travelStyles.headerTextContainer} font-header-4`}>
             Travel Blog

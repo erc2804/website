@@ -121,7 +121,13 @@ class IndexPage extends Component {
       },
     ]
     return (
-      <Layout title="Home" darkHeader={true}>
+      <Layout 
+        title="Home" 
+        descriptionEn="Ercan Cicek is a UX Designer and UX Developer based in Mainz with more than four years of work experience
+        in conceptualizing and implementing web applications in the frontend."
+        descriptionDe="Ercan Cicek ist ein UX Designer und UX Entwickler aus Mainz mit mehr als vier Jahren Erfahrung in der Konzeption und Entwicklung von Webanwendungen im Frontend."
+        darkHeader={true}
+      >
         <div className={indexStyles.indexPageWrapper}>
           <div className={indexStyles.indexPageContainer}>
             <div className={indexStyles.heroBlock}>
