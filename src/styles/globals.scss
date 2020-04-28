@@ -54,6 +54,20 @@ h6 {
   padding: 0 10%;
 }
 
+.blog-video-wrapper {
+  position: relative;
+  margin: 1rem 0 0 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  & iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media all and (orientation: portrait) and (max-width: 700px) {
   .default-padding {
     padding: 0 16px;

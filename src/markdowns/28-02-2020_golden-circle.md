@@ -13,7 +13,7 @@ Let me explain a bit more as diving deeper into this will pay off in many ways f
 
 ## The Golden Circle
 
-![](https://media-exp1.licdn.com/dms/image/C5112AQGDBzxdzxk2IQ/article-cover_image-shrink_600_2000/0?e=1587600000&v=beta&t=4yQLluxrp0csKV1fuv5w0_ivsbq31AgIUj90sXq133A)
+![](https://media-exp1.licdn.com/dms/image/C5112AQGDBzxdzxk2IQ/article-cover_image-shrink_423_752/0?e=1593648000&v=beta&t=LOwhSY0SJOEPgDudgWuLF-95vaFxGp7tc0XNK-nnt6s)
 
 <figcaption>A concise visual regarding the Golden Circle <a href="https://www.linkedin.com/pulse/concept-golden-circle-by-simon-sinek-babak-mohammadi/">Source</a></figcaption>
 
