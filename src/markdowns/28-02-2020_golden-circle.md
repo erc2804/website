@@ -13,9 +13,9 @@ Let me explain a bit more as diving deeper into this will pay off in many ways f
 
 ## The Golden Circle
 
-![](https://media-exp1.licdn.com/dms/image/C5112AQGDBzxdzxk2IQ/article-cover_image-shrink_423_752/0?e=1593648000&v=beta&t=LOwhSY0SJOEPgDudgWuLF-95vaFxGp7tc0XNK-nnt6s)
+<img style="border: 2px solid #efefef;" src="https://blog-assets.freshworks.com/freshsales-crm/wp-content/uploads/2018/08/Screen-Shot-2018-08-31-at-11.46.12-PM.png" alt="Golden Circle - image" />
 
-<figcaption>A concise visual regarding the Golden Circle <a href="https://www.linkedin.com/pulse/concept-golden-circle-by-simon-sinek-babak-mohammadi/">Source</a></figcaption>
+<figcaption>A concise visual regarding the Golden Circle. <a href="https://www.freshworks.com/freshsales-crm/resources/summary-of-start-with-why-blog/">Source</a></figcaption>
 
 The Golden Circle is the visual of Sinek's 'Why, How, What'-model. Here is a short wrap up of how Sinek describes these three questions from an organization's point of view:<br /><br />
 
@@ -46,3 +46,4 @@ The latter works way better as potential buyers get the intention they are suppo
 
 * [Simon Sinek @TED](https://www.youtube.com/watch?v=qp0HIF3SfI4)
 * [Babak Mohammadi @LinkedIn](https://www.linkedin.com/pulse/concept-golden-circle-by-simon-sinek-babak-mohammadi/)
+* [Tejas Kinger @freshworks.com](https://www.freshworks.com/freshsales-crm/resources/summary-of-start-with-why-blog/)

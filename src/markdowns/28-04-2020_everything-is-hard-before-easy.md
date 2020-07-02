@@ -1,5 +1,5 @@
 ---
-id: 
+id: 1588028400
 date: "2020-04-28"
 title: "Everything is hard before it gets easy"
 imageUrl: "https://images.unsplash.com/photo-1507250177462-a39de76ad68f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80"

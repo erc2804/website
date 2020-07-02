@@ -70,8 +70,8 @@ class AboutmePage extends Component {
                 in <strong>conceptualizing and implementing web applications</strong> at cut-e (an
                 AON company) in Hamburg, at Eckelmann in Wiesbaden and infraView
                 in Mainz. <br/> Mainly I am working with <strong>Angular</strong>, <strong>SCSS</strong> and <strong>Adobe CC</strong>.
-                <br/> Through my study of Communcation and Multimedia Design at
-                Fachhochschule Aachen I especially tend to <strong>Frontend development </strong>
+                <br/> Through my study of Communication and Multimedia Design at
+                Fachhochschule Aachen I especially tend to <strong>Frontend design & development </strong>
                 and am getting further education regularly.
               </span>
             </div>
