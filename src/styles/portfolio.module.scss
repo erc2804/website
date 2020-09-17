@@ -31,6 +31,9 @@
       > svg, > img {
         transition: transform .25s ease;
       }
+      > img {
+        border-radius: 10px;
+      }
       > span {
         position: absolute;
         bottom: 0;

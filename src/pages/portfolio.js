@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 // --- portfolio thumbnails (as img)
 import ivImg from '../images/portfolio/infraview_screenshot.png'
+import nwImg from '../images/portfolio/nextstepweb_screenshot.png'
 import jonaImg from '../images/portfolio/jona_screenshot.png'
 import dcImg from '../images/portfolio/digitChallenge_screenshot.png'
 import melImg from '../images/portfolio/mel_screenshot.png'
@@ -28,6 +29,15 @@ class PortfolioPage extends Component {
       },
       theme: "dark1"
     }, {
+      label: "Website, nextstepweb",
+      url: "https://www.nextstepweb.de",
+      thumbnail: {
+        type: "image",
+        src: nwImg,
+        alignment: "vertical"
+      },
+      theme: "dark2"
+    }, {
       label: "Website, infraView",
       url: "https://www.infraview.net",
       thumbnail: {
@@ -35,7 +45,7 @@ class PortfolioPage extends Component {
         src: ivImg,
         alignment: "vertical"
       },
-      theme: "dark2"
+      theme: "light1"
     }, {
       label: "Jobnavigator, Siemens",
       url: "https://jona.cut-e.com/jona/",
@@ -44,7 +54,7 @@ class PortfolioPage extends Component {
         src: jonaImg,
         alignment: "vertical"
       },
-      theme: "light1"
+      theme: "lightest"
     }, 
     {
       label: "custom mobile menu, tech demo",
@@ -54,18 +64,20 @@ class PortfolioPage extends Component {
         src: melImg,
         alignment: "vertical"
       },
-      theme: "lightest"
-    }
-    // {
-    //   label: "digitChallenge, Procter & Gamble",
-    //   url: "https://google.de",
-    //   thumbnail: {
-    //     type: "image",
-    //     src: dcImg,
-    //     alignment: "vertical"
-    //   },
-    //   theme: "lightest"
-    // }, {
+      theme: "light2"
+    },
+    {
+      label: "digitChallenge, Procter & Gamble",
+      url: "https://google.de",
+      thumbnail: {
+        type: "image",
+        src: dcImg,
+        alignment: "vertical"
+      },
+      theme: "dark1",
+      customClass: "hidden-box"
+    }, 
+    //{
     //   label: "playAssess, cut-e (an AON company)",
     //   url: "https://google.de",
     //   thumbnail: {
@@ -93,7 +105,7 @@ class PortfolioPage extends Component {
                 href={portfolioBox.url} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`${portfolioStyles.box} background-color-${portfolioBox.theme}`} 
+                className={`${portfolioStyles.box} background-color-${portfolioBox.theme} ${portfolioBox.customClass || ''}`} 
                 key={i}
               >
                 {portfolioBox.thumbnail.type === "icon" ? (
