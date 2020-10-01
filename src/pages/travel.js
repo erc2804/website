@@ -25,8 +25,20 @@ class TravelPage extends Component {
     }
   }
 
-  countries = ["japan", "morocco", "czechia", "hungary", "spain"];
+  countries = ["emirates", "japan", "morocco", "czechia", "hungary", "spain"];
   travelResources = [
+    {
+      id: "emirates-1",
+      country: "United Arab Emirates",
+      city: "Abu Dhabi",
+      date: "Januar 2020",
+      images: [],
+      videos: [],
+      preview: {
+        imageIdx: 1,
+        verticalImgPosInPercent: 25
+      }
+    },
     {
       id: "japan-1",
       country: "Japan",
@@ -95,7 +107,12 @@ class TravelPage extends Component {
 
   setTravelResources() {
     this.props.data.allFile.edges.forEach((edge) => {
-      if(edge.node.dir.indexOf("/japan/") !== -1) {
+      if(edge.node.dir.indexOf("/emirates/") !== -1) {
+        const relIdx = this.travelResources.findIndex((o) => o.id === "emirates-1");
+        if(relIdx !== -1) {
+          this.travelResources[relIdx].images.push({original: edge.node.childImageSharp.fluid.src, thumbnail: edge.node.childImageSharp.fixed.src});
+        }
+      } else if(edge.node.dir.indexOf("/japan/") !== -1) {
         const relIdx = this.travelResources.findIndex((o) => o.id === "japan-1");
         if(relIdx !== -1) {
           this.travelResources[relIdx].images.push({original: edge.node.childImageSharp.fluid.src, thumbnail: edge.node.childImageSharp.fixed.src});
