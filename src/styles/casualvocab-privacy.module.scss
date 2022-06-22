@@ -1,0 +1,22 @@
+@import "utilities.scss";
+@import "theme.scss";
+
+.cv-privacy-page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - #{$headerHeight});
+  padding-top: $headerHeight;
+  > .header-text-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 40px 0;
+  }
+  > .cv-privacy-content-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    margin-bottom: 120px;
+  }
+}

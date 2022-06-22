@@ -25,8 +25,20 @@ class TravelPage extends Component {
     }
   }
 
-  countries = ["emirates", "japan", "morocco", "czechia", "hungary", "spain"];
+  countries = ["emirates", "japan", "morocco", "czechia", "hungary", "spain", "austria"];
   travelResources = [
+    {
+      id: "austria-1",
+      country: "Austria",
+      city: "Vienna",
+      date: "April 2022",
+      videos: [],
+      images: [],
+      preview: {
+        imageIdx: 6,
+        verticalImgPosInPercent: 50
+      }
+    },
     {
       id: "emirates-1",
       country: "United Arab Emirates",
@@ -107,7 +119,12 @@ class TravelPage extends Component {
 
   setTravelResources() {
     this.props.data.allFile.edges.forEach((edge) => {
-      if(edge.node.dir.indexOf("/emirates/") !== -1) {
+      if(edge.node.dir.indexOf("/austria/") !== -1) {
+        const relIdx = this.travelResources.findIndex((o) => o.id === "austria-1");
+        if(relIdx !== -1) {
+          this.travelResources[relIdx].images.push({original: edge.node.childImageSharp.fluid.src, thumbnail: edge.node.childImageSharp.fixed.src});
+        }
+      } else if(edge.node.dir.indexOf("/emirates/") !== -1) {
         const relIdx = this.travelResources.findIndex((o) => o.id === "emirates-1");
         if(relIdx !== -1) {
           this.travelResources[relIdx].images.push({original: edge.node.childImageSharp.fluid.src, thumbnail: edge.node.childImageSharp.fixed.src});
