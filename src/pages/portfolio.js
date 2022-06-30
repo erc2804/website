@@ -8,9 +8,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import ivImg from '../images/portfolio/infraview_screenshot.png'
 import nwImg from '../images/portfolio/nextstepweb_screenshot.png'
 import jonaImg from '../images/portfolio/jona_screenshot.png'
-import dcImg from '../images/portfolio/digitChallenge_screenshot.png'
 import melImg from '../images/portfolio/mel_screenshot.png'
-import paImg from '../images/portfolio/playassess_screenshot.png'
+import cvImg from '../images/portfolio/casualvocab_screenshot.png'
 // --- styles
 import "../styles/globals.scss"
 import portfolioStyles from "../styles/portfolio.module.scss"
@@ -19,15 +18,43 @@ library.add(fab);
 
 class PortfolioPage extends Component {
   render() {
-    const portfolioBoxes = [{
+    const portalBoxes= [{
       label: "my fiddles",
       url: "https://jsfiddle.net/user/erc2804/",
       thumbnail: {
         type: "icon",
         src: "fab,jsfiddle",
-        alignment: "horizontal"
+        alignment: "vertical"
       },
       theme: "dark1"
+    }, {
+      label: "my codepens",
+      url: "https://codepen.io/erc2804",
+      thumbnail: {
+        type: "icon",
+        src: "fab,codepen",
+        alignment: "vertical"
+      },
+      theme: "dark1"
+    }, {
+      label: "my lottiefiles",
+      url: "https://lottiefiles.com/erc2804",
+      thumbnail: {
+        type: "icon",
+        src: "fab,airbnb",
+        alignment: "vertical"
+      },
+      theme: "dark1"
+    }];
+    const portfolioBoxes = [{
+      label: "CasualVocab, iOS app",
+      url: "https://apps.apple.com/de/app/casualvocab-widget-japanese/id1622203836?l=en",
+      thumbnail: {
+        type: "image",
+        src: cvImg,
+        alignment: "vertical"
+      },
+      theme: "dark2"
     }, {
       label: "Website, nextstepweb",
       url: "https://www.nextstepweb.de",
@@ -36,7 +63,7 @@ class PortfolioPage extends Component {
         src: nwImg,
         alignment: "vertical"
       },
-      theme: "dark2"
+      theme: "light1"
     }, {
       label: "Website, infraView",
       url: "https://www.infraview.net",
@@ -45,7 +72,7 @@ class PortfolioPage extends Component {
         src: ivImg,
         alignment: "vertical"
       },
-      theme: "light1"
+      theme: "lightest"
     }, {
       label: "Jobnavigator, Siemens",
       url: "https://jona.cut-e.com/jona/",
@@ -54,7 +81,7 @@ class PortfolioPage extends Component {
         src: jonaImg,
         alignment: "vertical"
       },
-      theme: "lightest"
+      theme: "light2"
     }, 
     {
       label: "custom mobile menu, tech demo",
@@ -64,29 +91,19 @@ class PortfolioPage extends Component {
         src: melImg,
         alignment: "vertical"
       },
-      theme: "light2"
-    },
+      theme: "dark2"
+    }, 
     {
       label: "digitChallenge, Procter & Gamble",
       url: "https://google.de",
       thumbnail: {
         type: "image",
-        src: dcImg,
+        src: melImg,
         alignment: "vertical"
       },
-      theme: "dark1",
+      theme: "dark2",
       customClass: "hidden-box"
-    }, 
-    //{
-    //   label: "playAssess, cut-e (an AON company)",
-    //   url: "https://google.de",
-    //   thumbnail: {
-    //     type: "image",
-    //     src: paImg,
-    //     alignment: "vertical"
-    //   },
-    //   theme: "light2"
-    // }, 
+    }
   ];
 
     return (
@@ -98,6 +115,31 @@ class PortfolioPage extends Component {
         <div className={`${portfolioStyles.portfolioPageWrapper} default-padding`}>
           <div className={`${portfolioStyles.headerTextContainer} font-header-4`}>
             Portfolio
+          </div>
+          <div className={portfolioStyles.portalBoxesWrapper}>
+            {portalBoxes.map((portalBox, i) => (
+              <a 
+                href={portalBox.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={`${portfolioStyles.box} background-color-${portalBox.theme} ${portalBox.customClass || ''}`} 
+                key={i}
+              >
+                {portalBox.thumbnail.type === "icon" ? (
+                  <FontAwesomeIcon 
+                    icon={portalBox.thumbnail.src.split(",")} 
+                    className={portalBox.thumbnail.alignment === "horizontal" ? "horizIconAlign" : "vertiIconAlign"} 
+                  />
+                ) : (
+                  <img 
+                    src={portalBox.thumbnail.src} 
+                    alt="" 
+                    className={portalBox.thumbnail.alignment === "horizontal" ? "horizImgAlign" : "vertiImgAlign"} 
+                  />
+                )}
+                <span className={`${portalBox.boxLabel} font-subheading-1`}>{portalBox.label}</span>
+              </a>
+            ))}
           </div>
           <div className={portfolioStyles.boxesWrapper}>
             {portfolioBoxes.map((portfolioBox, i) => (

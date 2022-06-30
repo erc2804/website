@@ -66,13 +66,10 @@ class AboutmePage extends Component {
             <div className={aboutmeStyles.descriptionContainer}>
               <h2 className={`font-header-2 text-color-light1`}>Developer. Designer. <br />Animation expert.</h2>
               <span className="font-subheading-1">
-                I am a UX Developer with more than five years of work experience
-                in <strong>conceptualizing and implementing web applications</strong> at cut-e (an
-                AON company) in Hamburg, at Eckelmann in Wiesbaden and infraView
-                in Mainz. <br/> Mainly I am working with <strong>Angular</strong>, <strong>SCSS</strong> and <strong>Adobe CC</strong>.
-                <br/> Through my study of Communication and Multimedia Design at
-                Fachhochschule Aachen I especially tend to <strong>Frontend design & development </strong>
-                and am getting further education regularly.
+                I am a UX Developer with more than six years of work experience
+                in conceptualizing and implementing web applications.<br />
+                Mainly I am working with <strong>Angular</strong>, <strong>Figma</strong> and <strong>Adobe CC</strong>.<br />
+                Due to my previous studies of Communication and Multimedia Design at Fachhochschule Aachen I have an affinity for <strong>Frontend design & development</strong> and getting further education regularly.
               </span>
             </div>
           </div>
