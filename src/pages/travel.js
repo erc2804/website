@@ -237,7 +237,7 @@ class TravelPage extends Component {
               </button>
               <div className={travelStyles.travelContentContainer}>
                 <div className={`${travelStyles.headerContainer} font-bold`}>
-                  <span className="font-header-4_5">{travelRes.city}&#44;&nbsp;{travelRes.country}</span>
+                  <span className="font-header-4_5">{travelRes.city.length > 0 ? travelRes.city + ', ' : ''}{travelRes.country}</span>
                   <span className="font-body-1">{travelRes.date}</span>
                 </div>
                 <div className={travelStyles.galleryContainer}>
