@@ -25,8 +25,20 @@ class TravelPage extends Component {
     }
   }
 
-  countries = ["emirates", "japan", "morocco", "czechia", "hungary", "spain", "austria"];
+  countries = ["emirates", "japan", "morocco", "czechia", "hungary", "spain", "austria", "california"];
   travelResources = [
+    {
+      id: "california-1",
+      country: "California",
+      city: "",
+      date: "September 2022",
+      videos: [],
+      images: [],
+      preview: {
+        imageIdx: 5,
+        verticalImgPosInPercent: 40
+      }
+    },
     {
       id: "austria-1",
       country: "Austria",
@@ -119,7 +131,12 @@ class TravelPage extends Component {
 
   setTravelResources() {
     this.props.data.allFile.edges.forEach((edge) => {
-      if(edge.node.dir.indexOf("/austria/") !== -1) {
+      if(edge.node.dir.indexOf("/california/") !== -1) {
+        const relIdx = this.travelResources.findIndex((o) => o.id === "california-1");
+        if(relIdx !== -1) {
+          this.travelResources[relIdx].images.push({original: edge.node.childImageSharp.fluid.src, thumbnail: edge.node.childImageSharp.fixed.src});
+        }
+      } else if(edge.node.dir.indexOf("/austria/") !== -1) {
         const relIdx = this.travelResources.findIndex((o) => o.id === "austria-1");
         if(relIdx !== -1) {
           this.travelResources[relIdx].images.push({original: edge.node.childImageSharp.fluid.src, thumbnail: edge.node.childImageSharp.fixed.src});
@@ -208,7 +225,7 @@ class TravelPage extends Component {
                 <div
                   className={`${travelStyles.titleOverlay} font-header-4 text-color-light1`}
                 >
-                  {travelRes.city}&#44;&nbsp;{travelRes.country}
+                  {travelRes.city.length > 0 ? travelRes.city + ', ' : ''}{travelRes.country}
                 </div>
                 <div className={travelStyles.dateOverlay}>
                   <FontAwesomeIcon icon={["far", "calendar-alt"]} />

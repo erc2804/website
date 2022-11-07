@@ -1,0 +1,15 @@
+@import "utilities.scss";
+@import "theme.scss";
+
+.url-error-page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - #{$headerHeight});
+  padding-top: $headerHeight;
+  > .header-text-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 40px 0;
+  }
+}

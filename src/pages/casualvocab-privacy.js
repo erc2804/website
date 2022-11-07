@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import "../styles/globals.scss"
 import cvPrivacyStyles from "../styles/casualvocab-privacy.module.scss"
 
-class PortfolioPage extends Component {
+class PrivacyPage extends Component {
   render() {
     return (
       <Layout
@@ -173,4 +173,4 @@ class PortfolioPage extends Component {
   }
 }
 
-export default PortfolioPage
+export default PrivacyPage

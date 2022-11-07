@@ -150,7 +150,7 @@ class Header extends Component {
               </Link>
             ))}
           </div>
-          <div
+          <button
             className={`${headerStyles.burgerMenuContainer} ${
               this.state.wndw.w < 700 ? "" : "deepHide"
             }`}
@@ -165,7 +165,7 @@ class Header extends Component {
             <div
               className={this.state.navMenuOpen ? headerStyles.animate : ""}
             ></div>
-          </div>
+          </button>
         </div>
         <div
           className={`${headerStyles.navMenu} ${
