@@ -74,7 +74,7 @@ class PortfolioPage extends Component {
       src: "",
       alignment: "vertical"
     },
-    theme: "dark2"
+    theme: "light1"
   }
   ];
 
