@@ -83,8 +83,8 @@ class TravelPage extends Component {
       videos: [],
       images: [],
       preview: {
-        imageIdx: 0,
-        verticalImgPosInPercent: 40
+        imageIdx: 6,
+        verticalImgPosInPercent: 52
       }
     },
     {

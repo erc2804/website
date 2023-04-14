@@ -49,9 +49,9 @@ class AboutmePage extends Component {
     return (
       <Layout 
         title="About Me"
-        descriptionEn="Ercan Cicek is a UX Designer and UX Developer based in Mainz with more than five years of work experience
+        descriptionEn="Ercan Cicek is a UX Designer and UX Developer based in Dusseldorf with more than seven years of work experience
         in conceptualizing and implementing web applications in the frontend."
-        descriptionDe="Ercan Cicek ist ein UX Designer und UX Entwickler aus Mainz mit mehr als fünf Jahren Erfahrung in der Konzeption und Entwicklung von Webanwendungen im Frontend."
+        descriptionDe="Ercan Cicek ist ein UX Designer und UX Entwickler aus Düsseldorf mit mehr als sieben Jahren Erfahrung in der Konzeption und Entwicklung von Webanwendungen im Frontend."
       >
         <div
           className={`${aboutmeStyles.aboutmePageWrapper} default-padding`}
@@ -66,7 +66,7 @@ class AboutmePage extends Component {
             <div className={aboutmeStyles.descriptionContainer}>
               <h2 className={`font-header-2 text-color-light1`}>Developer. Designer. <br />Animation expert.</h2>
               <span className="font-subheading-1">
-                I am a UX Developer with more than six years of work experience
+                I am a UX Developer with more than seven years of work experience
                 in conceptualizing and implementing web applications.<br />
                 Mainly I am working with <strong>Angular</strong>, <strong>Figma</strong> and <strong>Adobe CC</strong>.<br />
                 Due to my previous studies of Communication and Multimedia Design at Fachhochschule Aachen I have an affinity for <strong>Frontend design & development</strong> and getting further education regularly.
